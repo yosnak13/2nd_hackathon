@@ -1,6 +1,8 @@
 <h3> ユーザー 一覧 </h3>
 <% @users.each do |user| %>
-<%= user.name %>
-<%= user.email %>
-<%= %>
+<p>ユーザー名：<%= link_to user.name, show_users_path(user) %></p>
+<p>メール：<%= user.email %></p>
+<p>最終ログイン：<%= user.last_sign_in_at %></p>
+<%= button_to 'ユーザー削除', delete_user_path(user), data: {confirm: '本当にユーザー削除しますか？'}, method: :delete %>
+<hr>
 <% end %>

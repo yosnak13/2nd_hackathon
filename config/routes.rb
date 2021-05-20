@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'admin/posts_index', to: 'admin#posts_index', as: 'posts_index'
   get 'admin/users_index', to: 'admin#users_index', as: 'users_index'
   get 'admin/:id', to: 'admin#show_users', as: 'show_users'
+  delete 'admin/:id', to: 'admin#delete_user', as: 'delete_user'
 
   root 'users#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

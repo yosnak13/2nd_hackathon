@@ -55,7 +55,7 @@
       </li>
       <% end %>
 
-      <!-------- 管理者としてログイン------------>
+      <!-------- 管理者としてログインしている場合-------->
       <% if user_signed_in? && current_user.admin == 1 %>
       <li class='nav-item'>
         <%= link_to "ユーザー一覧", users_index_path, class: 'nav-link' %>

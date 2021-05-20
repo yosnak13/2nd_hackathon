@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
 
   before_action :except_non_administrator
+  before_action :find_user, only: [:show_user, :delete_user]
 
   def users_index
     @users = User.all
@@ -11,7 +12,16 @@ class AdminController < ApplicationController
   end
 
   def show_user
-    @user = User.find_by(id: params[:id])
+
+  end
+
+  def delete_user
+    if @user.destroy
+      flash[:notice] = "ユーザーを削除しました"
+    else
+      flash[:alert] = "削除できません"
+    end
+    redirect_to users_index_path
   end
 
   private
@@ -21,4 +31,7 @@ class AdminController < ApplicationController
       end
     end
 
+    def find_user
+      @user = User.find_by(id: params[:id])
+    end
 end
