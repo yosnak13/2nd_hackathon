@@ -12,7 +12,7 @@ class AdminController < ApplicationController
   end
 
   def show_user
-
+ 
   end
 
   def delete_user

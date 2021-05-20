@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # 管理者機能
   get 'admin/posts_index', to: 'admin#posts_index', as: 'posts_index'
   get 'admin/users_index', to: 'admin#users_index', as: 'users_index'
-  get 'admin/:id', to: 'admin#show_users', as: 'show_users'
+  get 'admin/:id', to: 'admin#show_user', as: 'show_user'
   delete 'admin/:id', to: 'admin#delete_user', as: 'delete_user'
 
   root 'users#index'
