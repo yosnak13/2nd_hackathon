@@ -1,17 +1,37 @@
-<h2>Resend confirmation instructions</h2>
+<div class = 'container'>
+  <div class='row justify-content-center'>
+    <div class = 'col-7'>
 
-<%= form_with(model: resource, scope: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-<!----- form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| ---->
-  <%= render 'users/shared/error_messages', resource: resource %>
+      <h2>Resend confirmation instructions</h2>
 
-  <div class='field'>
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      <%= form_with(model: resource, scope: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <!----- form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| ---->
+        <%= render 'users/shared/error_messages', resource: resource %>
+
+        <div class = 'form-group row'>
+          <%= f.label :email, "メールアドレス", class: 'col-5' %>
+
+          <div class='col-7'>
+            <%=
+              f.email_field :email,
+              class: 'form-control',
+              autofocus: 'true',
+              required: '',
+              autocomplete: 'email',
+              placeholder: "メールアドレス"
+            %>
+          </div>
+        </div>
+
+        <div class='form-group text-center'>
+          <%= f.submit 'Resend confirmation instructions', class: 'btn' %>
+        </div>
+
+      <% end %>
+      <div class='form-group text-center'>
+        <%= render 'users/shared/links' %>
+      </div>
+
+    </div>
   </div>
-
-  <div class='actions'>
-    <%= f.submit 'Resend confirmation instructions' %>
-  </div>
-<% end %>
-
-<%= render 'users/shared/links' %>
+</div>
