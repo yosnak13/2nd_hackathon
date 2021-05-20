@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: {
     registrations:  'users/registrations',
     sessions: 'users/sessions',
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     get 'verify', to: 'users/registrations#verify'
     get 'logout', to: 'users/sessions#destroy'
   end
-  root 'users#index'
+  root to: 'users#index'
+  get 'home/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
