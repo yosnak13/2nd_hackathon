@@ -1,0 +1,2 @@
+class Newstation < ApplicationRecord
+end

@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+CSV.foreach('db/station_sinzyukuline.csv', headers: true) do |row|
+  Newstation.create(
+    station_name: row['station_name'],
+    station_number:row['station_numbe'],
+    line: row['line'],
+  )
+end
