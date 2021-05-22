@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "csv"
 
-CSV.foreach('db/station_sinzyukuline.csv', headers: true) do |row|
-  Newstation.create(
-    station_name: row['station_name'],
-    station_number:row['station_numbe'],
-    line: row['line'],
+
+
+CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
+  Station.create(
+    station_name: row[0],
+    station_number: row[1],
+    line: row[2],
   )
 end
+
