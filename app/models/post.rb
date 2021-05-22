@@ -10,4 +10,6 @@ class Post < ApplicationRecord
   validates :time, presense: true
   validates :direction, presense: true
 
+  enum direction: { "西武新宿方面" => 0, "本川越方面" => 1 }
+  enum congestion_level: { "着席できる" => 1, "座れないが立って乗れる" => 3, "座席の前で立てる" => 3, "立っているのがやっと" => 4, "乗り切れないほど混雑している" => 5}
 end
