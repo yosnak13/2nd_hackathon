@@ -16,4 +16,3 @@ CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
     line: row[2],
   )
 end
-
