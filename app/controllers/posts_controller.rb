@@ -10,17 +10,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:id])
       if @post.save
-        edirect_to home_index_path
+        edirect_to posts_path
       end
   end
 
   def destroy
     @post.destroy
-    redirect_to home_index_path
+    redirect_to posts_path
   end
 
   private
   def post_params
-    params.require(:post).permit(:comment, :congestion_level, :date :day_of_week, :time, :direction)
+    params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction)
   end
 end
