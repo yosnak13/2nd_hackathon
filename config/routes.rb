@@ -21,10 +21,14 @@ Rails.application.routes.draw do
   get 'admin/:id', to: 'admin#show_user', as: 'show_user'
   delete 'admin/:id', to: 'admin#delete_user', as: 'delete_user'
 
+  resources :users, except: [:index] do
+    member do
+      get 'mypage', to: 'users#mypage'
+      get 'mypost', to: 'users#mypost'
+    end
+  end
+
   root to: 'users#index'
   get 'home/index'
-
-  # resources :posts, only: [:index, :create, :destroy]
-  resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
