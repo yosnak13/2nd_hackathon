@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'admin/users_index', to: 'admin#users_index', as: 'users_index'
   get 'admin/:id', to: 'admin#show_user', as: 'show_user'
   delete 'admin/:id', to: 'admin#delete_user', as: 'delete_user'
-  
+
   resources :users, except: [:index] do
     member do
       get 'mypage', to: 'users#mypage'
@@ -30,7 +30,5 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
   get 'home/index'
-
-  resources :posts, only: [:index, :create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
