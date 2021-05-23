@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  belongs_to :users
-  belongs_to :stations
+  belongs_to :user
+  belongs_to :station
   validates :user_id, presense: true
   validates :station_id, presense: true
   validates :comment, length: { maximum:140 }
