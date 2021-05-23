@@ -25,10 +25,7 @@
         <%= link_to "投稿", '#', class: 'nav-link' %>
       </li>
       <li class='nav-item'>
-        <%= link_to "ユーザー名", '#', class: 'nav-link' %>
-      </li>
-      <li class='nav-item'>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        <%= link_to current_user.name, mypage_user_path(current_user.id), class: 'nav-link' %>
       </li>
 
       <!---- 検索機能はまだ機能していないのでとりあえず形のみ -------->
