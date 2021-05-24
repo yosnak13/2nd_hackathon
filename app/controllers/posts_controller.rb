@@ -13,13 +13,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:id])
-      if @post.save
+      if @post.save #params飛ぶけど保存できていない
+        flash[:success] = "投稿しました！"
         redirect_to root_path
       end
   end
 
   def destroy
     @post.destroy
+    flash[:success] = "削除しました"
     redirect_to root_path
   end
 
