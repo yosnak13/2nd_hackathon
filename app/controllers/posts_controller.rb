@@ -13,9 +13,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:id])
-      if @post.save #params飛ぶけど保存できていない
-        flash[:success] = "投稿しました！"
+      if @post.present?
+        @post.save
+        flash[:notice] = "投稿しました！"
         redirect_to root_path
+      else
+        flash.now[:alert] = "空欄を埋めてください"
+        render :index
       end
   end
 
