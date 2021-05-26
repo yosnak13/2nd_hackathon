@@ -9,8 +9,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:id])
+    logger.debug("post = #{@post}")
       if @post.save
-        edirect_to home_index_path
+        redirect_to home_index_path
       end
   end
 
@@ -21,6 +22,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:comment, :congestion_level, :date :day_of_week, :time, :direction)
+    params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction)
   end
 end
