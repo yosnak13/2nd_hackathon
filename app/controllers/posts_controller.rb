@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :set_stations, only: [:new, :create]
 
   def index
+    @post = Post.new
     @posts = Post.all
   end
 
@@ -12,9 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:id])
-      if @post.present?
-        @post.save
+    @post = current_user.posts.build(post_params)
+      if @post.save
         flash[:notice] = "投稿しました！"
         redirect_to root_path
       else
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction)
+    params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type, :station_id)
   end
 
   def set_stations

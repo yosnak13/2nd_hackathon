@@ -6,7 +6,8 @@ class Post < ApplicationRecord
   validates :comment, length: { maximum:140 }
   validates :congestion_level, presence: true
   validates :date, presence: true
-  validates :day_of_week, presence: true
+  # いったんpresence: true 削除
+  # validates :day_of_week, presence: true
   validates :time, presence: true
   validates :direction, presence: true
 
