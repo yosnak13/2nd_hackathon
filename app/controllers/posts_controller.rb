@@ -14,6 +14,25 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    
+    # 受け取った日付から曜日を選択
+    day = Date.parse(params[:post][:date])
+    case day.wday
+    when 0 then
+      @post.day_of_week = "日"
+    when 1 then
+      @post.day_of_week = "月"
+    when 2 then
+      @post.day_of_week = "火"
+    when 3 then
+      @post.day_of_week = "水"
+    when 4 then
+      @post.day_of_week = "木"
+    when 5 then
+      @post.day_of_week = "金"
+    when 6 then
+      @post.day_of_week = "土"
+    end
       if @post.save
         flash[:notice] = "投稿しました！"
         redirect_to root_path
