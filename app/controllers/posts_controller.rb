@@ -50,11 +50,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-<<<<<<< HEAD
     params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type, :station_id)
-=======
-    params.permit(:user_id, :staition_id, :comment, :congestion_level, :date, :time, :direction)
->>>>>>> 8673da61fd44d5679ea5ff53752f8e82a7d0d87d
   end
 
   def set_stations
