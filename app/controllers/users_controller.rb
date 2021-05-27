@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except:
 
   def index
+    @posts = Post.all
   end
 
   def mypage

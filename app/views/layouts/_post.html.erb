@@ -1,14 +1,12 @@
 <div class="row">
   <%= form_with model: @post, local: true do |f| %>
-    <%= f.hidden_field :user_id, value: 29 %>
-    <%= f.select :direction, {"西武新宿方面": 1,  "本川越方面": 2} %>
-    <%= f.hidden_field :train_type, value: 0 %>
-    <%= f.collection_select :station_id, Station.all, :station_number, :station_name, prompt:"選択してください", class: "form-control" %>
-    <%= f.date_field :date, default: { year: 2021, month: 4, day: 1 } %>
-    <%= f.number_field :time %>
-    <%= f.select :congestion_level, {"着席できる" => 1, "座れないが立って乗れる" => 2, "座席の前で立てる" => 3, "立っているのがやっと" => 4, "乗り切れないほど混雑している" => 5} %>
-    <%= f.select :day_of_week, {"日曜日" => 0, "月曜日" => 1, "火曜日" => 2, "水曜日" => 3, "木曜日" => 4, "金曜日" => 5, "土曜日" => 6} %>
-    <%= f.text_field :comment %>
-    <%= f.submit %>
+  <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, prompt:"選択してください", class: "form-control" %>
+  <%= f.hidden_field :train_type,  value: "快速急行/Fライナー" %>
+  <%= f.collection_select :station_id, Station.all, :id, :station_name, prompt:"選択してください", class: "form-control" %>
+  <%= f.date_field :date, default: { year: 2021, month: 4, day: 1 } %>
+  <%= f.number_field :time %>
+  <%= f.select :congestion_level, Post.congestion_levels.keys.map {|k| [k, k]}, prompt:"選択してください", class: "form-control" %>
+  <%= f.text_field :comment %>
+  <%= f.submit %>
   <% end %>
 </div>
