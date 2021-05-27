@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     # 受け取った日付から曜日を選択
     week = ["日", "月", "火", "水", "木", "金", "土"]
     day = Date.parse(params[:post][:date])
-    @post.day_of_week = week[day.wday]    
+    @post.day_of_week = week[day.wday]
     if @post.save
       flash[:notice] = "投稿しました！"
       redirect_to root_path
