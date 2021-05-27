@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   # before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_stations, only: [:new, :create]
+  before_action :set_stations
 
   def index
     @post = Post.new
@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+
     # 受け取った日付から曜日を選択
     week = ["日", "月", "火", "水", "木", "金", "土"]
     day = Date.parse(params[:post][:date])
