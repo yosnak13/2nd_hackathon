@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
 # station一覧作成
 # require "csv"
 # CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
@@ -43,3 +44,4 @@ end
     comment: Faker::Games::StreetFighter.quote,
   )
 end
+

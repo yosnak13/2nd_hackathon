@@ -14,7 +14,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-
     # 受け取った日付から曜日を選択
     week = ["日", "月", "火", "水", "木", "金", "土"]
     day = Date.parse(params[:post][:date])
