@@ -16,30 +16,16 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     # 受け取った日付から曜日を選択
+    week = ["日", "月", "火", "水", "木", "金", "土"]
     day = Date.parse(params[:post][:date])
-    case day.wday
-    when 0 then
-      @post.day_of_week = "日"
-    when 1 then
-      @post.day_of_week = "月"
-    when 2 then
-      @post.day_of_week = "火"
-    when 3 then
-      @post.day_of_week = "水"
-    when 4 then
-      @post.day_of_week = "木"
-    when 5 then
-      @post.day_of_week = "金"
-    when 6 then
-      @post.day_of_week = "土"
+    @post.day_of_week = week[day.wday]    
+    if @post.save
+      flash[:notice] = "投稿しました！"
+      redirect_to root_path
+    else
+      flash.now[:alert] = "空欄を埋めてください"
+      render :index
     end
-      if @post.save
-        flash[:notice] = "投稿しました！"
-        redirect_to root_path
-      else
-        flash.now[:alert] = "空欄を埋めてください"
-        render :index
-      end
   end
 
   def destroy
