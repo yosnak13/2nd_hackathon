@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'verify', to: 'users/registrations#verify'
     get 'logout', to: 'users/sessions#destroy'
   end
-  
+
   # 管理者機能
   get 'admin/posts_index', to: 'admin#posts_index', as: 'posts_index'
   get 'admin/users_index', to: 'admin#users_index', as: 'users_index'
@@ -30,5 +30,7 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
   get 'home/index'
+  
+  resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
