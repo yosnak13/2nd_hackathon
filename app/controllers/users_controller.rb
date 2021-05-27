@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def mypost
     @user = current_user.name
-    @posts = current_user.posts.all
+    @posts = Post.where("user_id = #{current_user.id}" )
   end
 
 end
