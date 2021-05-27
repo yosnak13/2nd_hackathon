@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_111905) do
+ActiveRecord::Schema.define(version: 2021_05_22_030615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "station_id"
+    t.text "comment"
+    t.integer "congestion_level"
+    t.date "date"
+    t.string "day_of_week"
+    t.integer "time"
+    t.integer "direction"
+    t.string "train_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_posts_on_station_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "stations", force: :cascade do |t|
     t.string "station_name"

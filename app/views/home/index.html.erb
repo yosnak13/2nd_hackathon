@@ -1,2 +1,17 @@
 <h1>Home#index</h1>
 <p>ログイン成功！！</p>
+
+
+<h3 class="page-header">投稿一覧</h3>
+<ul class="list-group">
+<% @posts.each do |post| %>
+    <li class="list-group-item">
+   <div>名前:<%= post.user.name %></div>
+   <div><%= post.direction %>方面&ensp; 
+    駅名:<%= post.station.station_name %>&ensp; 
+   <%= post.time %>時頃</div>
+   <div>コメント:<%= post.comment %>&ensp; 
+   混雑度:<%= post.congestion_level %></div>
+ </li>
+<% end %>
+</ul>

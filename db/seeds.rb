@@ -8,11 +8,17 @@
 require "csv"
 
 
-
-CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
-  Station.create(
-    station_name: row[0],
-    station_number: row[1],
-    line: row[2],
+CSV.foreach('db/shinjuku_post_dummy.csv', headers: true) do |row|
+  Post.create(
+    user_id: row[0],
+    station_id: row[1],
+    comment: row['2'],
+    congestion_level: row[3],
+    date: row['4'],
+    day_of_week: row['5'],
+    time: row[6],
+    direction: row[7],
+    train_type: row[8],
   )
 end
+
