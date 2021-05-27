@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   # before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_stations, only: [:new, :create]
+  before_action :set_stations
 
   def index
+    @post = Post.new
     @posts = Post.all
   end
 
@@ -12,17 +13,18 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    @post.day_of_week = params[:date].to_date.wday  #日付から曜日を算出
-      if @post.present?
-        @post.save!
-        flash[:notice] = "投稿しました！"
-        redirect_to root_path
-      else
-        flash.now[:alert] = "空欄を埋めてください"
-        render :index
-      end
+    @post = current_user.posts.build(post_params)
+    # 受け取った日付から曜日を選択
+    week = ["日", "月", "火", "水", "木", "金", "土"]
+    day = Date.parse(params[:post][:date])
+    @post.day_of_week = week[day.wday]    
+    if @post.save
+      flash[:notice] = "投稿しました！"
+      redirect_to root_path
+    else
+      flash.now[:alert] = "空欄を埋めてください"
+      render :index
+    end
   end
 
   def destroy
@@ -33,9 +35,9 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.permit(:user_id, :station_id, :comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type)
+    params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type, :station_id)
   end
-    
+
   def set_stations
     @stations = Station.all
   end
