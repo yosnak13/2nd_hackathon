@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   # before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_stations, only: [:new, :create]
+  before_action :set_stations
 
   def index
     @post = Post.new
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    
+
     # 受け取った日付から曜日を選択
     day = Date.parse(params[:post][:date])
     case day.wday
@@ -50,7 +50,11 @@ class PostsController < ApplicationController
 
   private
   def post_params
+<<<<<<< HEAD
     params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type, :station_id)
+=======
+    params.permit(:user_id, :staition_id, :comment, :congestion_level, :date, :time, :direction)
+>>>>>>> 8673da61fd44d5679ea5ff53752f8e82a7d0d87d
   end
 
   def set_stations
