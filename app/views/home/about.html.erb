@@ -1,0 +1,73 @@
+<div class = 'container'>
+  <h2 class = 'text-center'>「アプリ名」とは</h2>
+
+  <div class = 'row my-3'>
+      <div class = 'col-md-6 my-auto'>
+        <h5 class = 'text-center'>「アプリ名」とは</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+
+      <div class = 'col-md-6'>
+        <%= image_tag "/images/graph.png", class: "img-thumbnail"%>
+      </div>
+  </div>
+
+  <div class = 'row'>
+      <div class = 'col-md-6'>
+        <h5 class = 'text-center'>投稿一覧</h5>
+        <div class = 'card'>
+          <div class = 'card-body'>
+          
+            <li class="list-group-item">
+              <div>名前:〇〇</div>
+              <div>〇〇方面&ensp; 
+              駅名:〇〇駅 
+              7:00時頃</div>
+              <div>コメント: Lorem ipsum dolor sit amet
+              混雑度:混んでる</div>
+            </li>
+            <li class="list-group-item">
+              <div>名前:〇〇</div>
+              <div>〇〇方面&ensp; 
+              駅名:〇〇駅 
+              7:00時頃</div>
+              <div>コメント: Lorem ipsum dolor sit amet
+              混雑度:混んでる</div>
+            </li>
+            <li class="list-group-item">
+              <div>名前:〇〇</div>
+              <div>〇〇方面&ensp; 
+              駅名:〇〇駅 
+              7:00時頃</div>
+              <div>コメント: Lorem ipsum dolor sit amet
+              混雑度:混んでる</div>
+            </li>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class = 'col-md-6'>
+        <h5 class = 'text-center'>Lorem ipsum dolor sit amet</h5>
+
+        <div class = 'row d-flex justify-content-center'>
+          <ul class = 'list-group list-group-horizontal'>
+            <li>混んでる</li>
+            <li class = 'mx-4'>混んでない</li>
+            <li>普通</li>
+          </ul>
+        </div>
+
+        <% if user_signed_in? %>
+          <%= link_to "混雑時間を調べる", home_index_path, class: 'nav-link' %>
+        <% else %>
+          <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'nav-link' %>
+        <% end %>
+
+        <%= link_to "会員登録する", new_user_registration_path, class: 'nav-link' %>
+      </div>
+  </div>
+</div>
