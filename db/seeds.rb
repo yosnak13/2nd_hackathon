@@ -9,14 +9,14 @@
 
 
 # station一覧作成
-# require "csv"
-# CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
-#   Station.create(
-#     station_name: row[0],
-#     station_number: row[1],
-#     line: row[2],
-#   )
-# end
+require "csv"
+CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
+  Station.create(
+    station_name: row[0],
+    station_number: row[1],
+    line: row[2],
+  )
+end
 
 # サンプルuser作成
 5.times do
