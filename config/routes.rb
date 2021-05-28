@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'admin/posts_index', to: 'admin#posts_index', as: 'posts_index'
   get 'admin/users_index', to: 'admin#users_index', as: 'users_index'
   get 'admin/:id', to: 'admin#show_user', as: 'show_user'
+  delete 'admin/:id/delete', to: 'admin#delete_post', as: 'delete_post'
   delete 'admin/:id', to: 'admin#delete_user', as: 'delete_user'
 
   resources :users, except: [:index] do

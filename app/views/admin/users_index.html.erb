@@ -3,10 +3,14 @@
     <h3> ユーザー 一覧 </h3>
   </div>
   <% @users.each do |user| %>
-  <p>ユーザー名：<%= link_to user.name, show_user_path(user) %>
+  <p>ユーザー名：<%= link_to user.name, show_user_path(user) %><span class="ml-4">ID：<%= user.id %></span>
   <p>メール：<%= user.email %>
   <p>最終ログイン：<%= user.last_sign_in_at %>
-    <%= button_to 'ユーザー削除', delete_user_path(user), data: {confirm: '本当にユーザー削除しますか？'}, method: :delete %>
+    <span class="ml-4">投稿数：
+      <% if user.posts.present? %>
+      <%= user.posts.count %>
+      <% end %>
+    </span>
     <hr>
     <% end %>
 </main>
