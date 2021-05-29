@@ -14,7 +14,7 @@
     <div class="col-6 bgred">
       <h4 class="page-header text-center">最新投稿</h4>
       <ul class="list-group">
-        <div class='card'>
+        <div class='card posts'>
           <div class='card-body'>
             <% @posts.each do |post| %>
             <li class="list-group-item">
@@ -28,11 +28,13 @@
             <% end %>
           </div>
 
-          <div class='mx-auto'>
-            <%= link_to "投稿", posts_path, class: 'nav-link' %>
-          </div>
         </div>
       </ul>
+      <div class="row my-4">
+        <div class="col text-center">
+          <%= link_to "投稿する", posts_path, class: 'btn btn-success' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
