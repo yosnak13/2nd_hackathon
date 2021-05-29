@@ -1,73 +1,98 @@
-<div class = 'container'>
-  <h2 class = 'text-center'>「アプリ名」とは</h2>
+<div class='container'>
+  <h2 class='text-center my-4'>「アプリ名」とは</h2>
 
-  <div class = 'row my-3'>
-      <div class = 'col-md-6 my-auto'>
-        <h5 class = 'text-center'>「アプリ名」とは</h5>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+  <div class='row my-3'>
+    <div class='col-md-6 my-auto'>
+      <h5 class="text-center">
+        電車の混み具合を確認・投稿できるアプリです。
+      </h5><br><br>
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10 align-self-center">
+          <p>ユーザーからの投稿を集めて、時間ごとや曜日ごとの混み具合をデータ化して表示します。<br><br>グラフで分かりやすく表示されるので、お気に入り駅を登録しておけば、ひと目で混み具合が分かります！<br>
+          </p>
+        </div>
+        <div class="col-1">
+        </div>
       </div>
+    </div>
 
-      <div class = 'col-md-6'>
-        <%= image_tag "/images/graph.png", class: "img-thumbnail"%>
-      </div>
+    <div class='col-md-6'>
+      <p class="text-center">電車の混み具合を５段階で表示</p>
+      <%= image_tag "/images/graph.png", class: "img-thumbnail"%>
+    </div>
   </div>
 
-  <div class = 'row'>
-      <div class = 'col-md-6'>
-        <h5 class = 'text-center'>投稿一覧</h5>
-        <div class = 'card'>
-          <div class = 'card-body'>
-          
-            <li class="list-group-item">
-              <div>名前:〇〇</div>
-              <div>〇〇方面&ensp; 
-              駅名:〇〇駅 
-              7:00時頃</div>
-              <div>コメント: Lorem ipsum dolor sit amet
+  <div class='row'>
+    <div class='col-md-6 my-4 px-4'>
+      <p class='text-center'>ユーザーの投稿を見ることができます</p>
+      <div class='card'>
+        <div class='card-body'>
+
+          <li class="list-group-item">
+            <div>名前：電車太郎</div>
+            <div>西武新宿方面&ensp;
+              駅名：上石神井 駅
+              8:00時頃</div>
+            <div>コメント：週明けとあって、中々混んでる
               混雑度:混んでる</div>
-            </li>
-            <li class="list-group-item">
-              <div>名前:〇〇</div>
-              <div>〇〇方面&ensp; 
-              駅名:〇〇駅 
-              7:00時頃</div>
-              <div>コメント: Lorem ipsum dolor sit amet
+          </li>
+          <li class="list-group-item">
+            <div>名前：鉄道一郎</div>
+            <div>本川越方面&ensp;
+              駅名：高田馬場 駅
+              14:00時頃</div>
+            <div>コメント：意外と座れる。
               混雑度:混んでる</div>
-            </li>
-            <li class="list-group-item">
-              <div>名前:〇〇</div>
-              <div>〇〇方面&ensp; 
-              駅名:〇〇駅 
-              7:00時頃</div>
-              <div>コメント: Lorem ipsum dolor sit amet
+          </li>
+          <li class="list-group-item">
+            <div>名前：西武道雄</div>
+            <div>本川越方面&ensp;
+              駅名：西武新宿駅
+              18:00時頃</div>
+            <div>コメント: やっぱ、帰宅ラッシュだよねぇ
               混雑度:混んでる</div>
-            </li>
-            
+          </li>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='col-md-6 my-4 intro'>
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+          <h5 class='text-center'>
+            リアルタイムでユーザーの投稿が反映されます！
+          </h5><br><br>
+          <p>
+            混み具合は５段階で。時間は1時間ごとに表示されるので、通勤やお出かけの際にチェックすると便利です！
+          <p>・・アイコンを並べる予定・・・・・・</p>
+          <div class='row d-flex justify-content-center'>
+            <ul class='list-group list-group-horizontal'>
+              <li>混んでる</li>
+              <li class='mx-4'>混んでない</li>
+              <li>普通</li>
+            </ul>
+          </div>
+          <p>・・・・・・・・・・・・・・・・・・・</p>
+          <br>
+          <p>ユーザーからの投稿がリアルタイムで反映されていくので、電車の状況が分かります。</p>
+
+          <% if user_signed_in? %>
+          <%= link_to "混雑時間を調べる", home_index_path, class: 'btn btn-success' %>
+          <% else %>
+          <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success' %>
+          <% end %>
+
+          <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-success mx-2' %><br><br>
+          <p class="small text-danger">*会員登録するとお気に入り駅の登録や、投稿ができます</p>
+          <div class="col-1">
           </div>
         </div>
       </div>
-
-      <div class = 'col-md-6'>
-        <h5 class = 'text-center'>Lorem ipsum dolor sit amet</h5>
-
-        <div class = 'row d-flex justify-content-center'>
-          <ul class = 'list-group list-group-horizontal'>
-            <li>混んでる</li>
-            <li class = 'mx-4'>混んでない</li>
-            <li>普通</li>
-          </ul>
-        </div>
-
-        <% if user_signed_in? %>
-          <%= link_to "混雑時間を調べる", home_index_path, class: 'nav-link' %>
-        <% else %>
-          <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'nav-link' %>
-        <% end %>
-
-        <%= link_to "会員登録する", new_user_registration_path, class: 'nav-link' %>
-      </div>
+    </div>
   </div>
 </div>

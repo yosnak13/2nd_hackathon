@@ -4,11 +4,11 @@ class AdminController < ApplicationController
   before_action :find_user, only: [:show_user, :delete_user]
 
   def users_index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(50)
   end
 
   def posts_index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(100)
   end
 
   def show_user

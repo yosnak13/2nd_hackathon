@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="row">
-        <div class="col-6 bgred">    
-            <h1>Congestion_level graph</h1>
-            <%= column_chart @graph,
+  <div class="row">
+    <div class="col-6 bgred">
+      <h1>Congestion_level graph</h1>
+      <%= column_chart @graph,
                 id: 'total-attendance-chart',
                 width: '400px',
                 height: '500px',
@@ -10,31 +10,31 @@
                 ytitle: "混雑状況",
                 colors: ['#06b'] 
             %>
-        </div>
-        <div class="col-6 bgred">
-            <h1>Home#index</h1>
-            <h3 class="page-header">投稿一覧</h3>
-            <ul class="list-group">
-                <div class = 'card'>
-                    <div class = 'card-body'>
-                        <% @posts.each do |post| %>
-                            <li class="list-group-item">
-                                <div>名前:<%= post.user.name %></div>
-                                <div><%= post.direction %>方面&ensp; 
-                                駅名:<%= post.station.station_name %>&ensp; 
-                                <%= post.time %>時頃</div>
-                                <div>コメント:<%= post.comment %>&ensp; 
-                                混雑度:<%= post.congestion_level %></div>
-                            </li>
-                        <% end %>
-                    </div>
-
-                    <div class = 'mx-auto'>
-                        <%= link_to "投稿", posts_path, class: 'nav-link' %>
-                    </div>
-                    
-                </div>
-            </ul>
-        </div>
     </div>
+    <div class="col-6 bgred">
+      <h4 class="page-header text-center">最新投稿</h4>
+      <ul class="list-group">
+        <div class='card posts'>
+          <div class='card-body'>
+            <% @posts.each do |post| %>
+            <li class="list-group-item">
+              <div>名前:<%= post.user.name %></div>
+              <div><%= post.direction %>方面&ensp;
+                駅名:<%= post.station.station_name %>&ensp;
+                <%= post.time %>時頃</div>
+              <div>コメント:<%= post.comment %>&ensp;
+                混雑度:<%= post.congestion_level %></div>
+            </li>
+            <% end %>
+          </div>
+
+        </div>
+      </ul>
+      <div class="row my-4">
+        <div class="col text-center">
+          <%= link_to "投稿する", posts_path, class: 'btn btn-success' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
