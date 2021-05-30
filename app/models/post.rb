@@ -2,7 +2,6 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :station
 
-  validates :user_id, presence: true
   validates :direction, presence: true
   validates :train_type, presence: true
   validates :station_id, presence: true

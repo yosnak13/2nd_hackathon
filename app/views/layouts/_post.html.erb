@@ -1,12 +1,30 @@
-<%= render'layouts/error_messages'%>
+<%= render'layouts/error_messages' %>
 <div class="row">
   <%= form_with model: @post, local: true do |f| %>
-  <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"方面選択してください"}, class: 'form-control' %>
-  <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
-  <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"駅を選択してください"},  class: 'form-control' %>
-  <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
-  <%= f.number_field :time, min: 0, max: 23, class: 'form-control', :placeholder => "時間帯を入力ください" %>
-  <%= f.select :congestion_level, Post.congestion_levels.keys.map {|k| [k, k]}, {prompt:"混雑具合を選択してください"}, class: 'form-control' %>
+  <div class="">
+    <%= f.label :direction, "方向" %>
+    <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"方面選択してください"}, class: 'form-control' %>
+  </div>
+  <div class="">
+    <% f.label :train_type, "列車種別" %><!--種別投稿が未実装のた表示しない-->
+    <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
+  </div>
+  <div class="">
+    <%= f.label :station_id, "駅名" %>
+    <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"駅を選択してください"},  class: 'form-control' %>
+  </div>
+  <div class="">
+    <%= f.label :date, "日付" %>
+    <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
+  </div>
+  <div class="">
+    <%= f.label :time, "時間" %>
+    <%= f.number_field :time, min: 0, max: 23, class: 'form-control', :placeholder => "時間帯を入力ください" %>
+  </div>
+  <div class="">
+    <%= f.label :congestion_level, "混雑具合" %>
+    <%= f.select :congestion_level, Post.congestion_levels.keys.map {|k| [k, k]}, {prompt:"混雑具合を選択してください"}, class: 'form-control' %>
+  </div>
   <%= f.text_field :comment, class: 'form-control', :placeholder => "コメントを入力してください" %>
   <%= f.submit %>
   <% end %>
