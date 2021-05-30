@@ -4,15 +4,15 @@ class AdminController < ApplicationController
   before_action :find_user, only: [:show_user, :delete_user]
 
   def users_index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(50)
   end
 
   def posts_index
-    
+    @posts = Post.all.page(params[:page]).per(100)
   end
 
   def show_user
- 
+    @posts = @user.posts
   end
 
   def delete_user
@@ -22,6 +22,16 @@ class AdminController < ApplicationController
       flash[:alert] = "削除できません"
     end
     redirect_to users_index_path
+  end
+
+  def delete_post
+    @post = Post.find(params[:id])
+    if @post.delete
+      flash[:notice] = "投稿を削除しました"
+    else
+      flash[:alert] = "削除できません"
+    end
+    redirect_back fallback_location: posts_index_path
   end
 
   private

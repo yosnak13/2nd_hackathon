@@ -2,11 +2,28 @@
   <div class="text-center">
     <h3>ユーザーページ</h3>
   </div>
-  <p>ユーザー名：<%= @user.name %>
-  <p>メール：<%= @user.email %>
-  <p>投稿数：
-  <p>最終ログイン：<%= @user.last_sign_in_at %>
-    <hr />
-    投稿が流れていく予定
-    ・・・
+  <section class="card shadow-sm">
+    <p>ユーザー名：<%= @user.name %>
+    <p>メール：<%= @user.email %>
+    <p>投稿数：
+      <% if @user.posts.present? %>
+      <%= @user.posts.count %>
+      <% end %>
+    <p>最終ログイン：<%= @user.last_sign_in_at %>
+      <%= button_to 'ユーザー削除', delete_user_path(@user), data: {confirm: '本当にユーザー削除しますか？'}, method: :delete, class: "btn btn-danger" %>
+  </section>
+  <hr />
+  <% @posts.each do |post| %>
+  <ul class="list-unstyled">
+    <li>ポストID：<%= post.id%></li>
+    <li>投稿者：<%= link_to "#{post.user.name}", show_user_path(post.user)%></li>
+    <li>日付：<%= post.date%><span class="ml-4">曜日：<%= post.day_of_week %></span><span class="ml-4">時刻：<%= post.time %>時</span></li>
+    <li>方面：<%= post.direction%><span class="ml-4">駅：<%= post.station.station_name%></span>
+    </li>
+    <li>混雑具合：<%= post.congestion_level%></li>
+    <li>コメント：<%= post.comment%></li>
+  </ul>
+  <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-warning" %>
+  <hr>
+  <% end %>
 </main>
