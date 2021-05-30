@@ -53,6 +53,9 @@ gem 'faker'
 
 gem 'kaminari'
 
+#日付のバリデーション
+gem 'jc-validates_timeliness'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
