@@ -1,2 +1,23 @@
-<h1>ハッカソンテスト　USERS/INDEX　とばすよ</h1>
-<p>これが確認できるということは、ちゃんととばせてるね</p>
+<div class="container">
+
+  <h1>ハッカソンテスト　USERS/INDEX　とばすよ</h1>
+  <p>これが確認できるということは、ちゃんととばせてるね</p>
+
+  <%# 投稿できているかのテスト %>
+  <ul>
+    <% if @posts %>
+      <% @posts.each do |post| %>
+        <li>ポストID：<%= post.id%></li>
+        <li>投稿者：<%= post.user.name%></li>
+        <li>日付：<%= post.date%></li>
+        <li>曜日：<%= post.day_of_week %></li>
+        <li>時刻：<%= post.time %>時</li>
+        <li>駅：<%= post.station.station_name%></li>
+        <li>方面：<%= post.direction%></li>
+        <li>混雑具合：<%= post.congestion_level%></li>
+        <li>コメント：<%= post.comment%></li>
+        <hr>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
