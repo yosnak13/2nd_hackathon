@@ -8,7 +8,19 @@ class AdminController < ApplicationController
   end
 
   def posts_index
+    @post = Post.new
     @posts = Post.all.page(params[:page]).per(100)
+  end
+
+  def posts_search
+    @post = Post.new
+    s_time = params[:post][:start_time]
+    e_time = params[:post][:end_time]
+    s_date = params[:post][:start_date]
+    e_date = params[:post][:end_date]
+    direction = params[:post][:direction]
+    station = params[:post][:station]
+    @posts = Post.s_duration(s_date).e_duration(e_date).s_time(s_time).e_time(e_time).direction(direction).station(station)
   end
 
   def show_user
