@@ -1,12 +1,12 @@
 class Post < ApplicationRecord
   belongs_to :user
   belongs_to :station
-  
+
   validates :user_id, presence: true
   validates :station_id, presence: true
   validates :comment, length: { maximum:140 }
   validates :congestion_level, presence: true
-  validates :date, presence: true
+  validates :date, timeliness: { on_or_before: :now, format: '%Y-%m-%d'}, allow_blank: false
   validates :day_of_week, presence: true
   validates :time, presence: true
   validates :direction, presence: true
