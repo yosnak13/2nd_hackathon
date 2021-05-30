@@ -1,16 +1,19 @@
 <div class="container">
-<h1>混雑具合検索</h1>
-<div class="row">
-  <%= search_form_for @q, url: search_path do |f| %>
-  <%= f.label :direction, '方面' %>
-  <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, class: 'form-control' %>
-  <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
-  <%= f.label :station_id, '駅名' %>
-  <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"選択してください"},  class: 'form-control' %>
-  <br>
-  <%= f.submit '検索' %>
-  <% end %>
-</div>
+  <h1>混雑具合検索</h1>
+  <div class="row">
+    <%= search_form_for @q, url: search_path do |f| %>
+    <%= f.label :direction, '方面' %>
+    <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, class: 'form-control' %>
+    <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
+    <%= f.label :station_id, '駅名' %>
+    <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"選択してください"},  class: 'form-control' %>
+    <br>
+    <%= f.submit '検索' %>
+    <% end %>
+  </div>
+
+
+
 
   <div class="row">
     <div class="col-6 bgred">
@@ -25,9 +28,10 @@
             %>
     </div>
     <div class="col-6 bgred">
-      <h4 class="page-header text-center">最新投稿</h4>
+      <h1>Home#index</h1>
+      <h3 class="page-header">投稿一覧</h3>
       <ul class="list-group">
-        <div class='card posts'>
+        <div class='card'>
           <div class='card-body'>
             <% @posts.each do |post| %>
             <li class="list-group-item">
@@ -41,13 +45,12 @@
             <% end %>
           </div>
 
+          <div class='mx-auto'>
+            <%= link_to "投稿", posts_path, class: 'nav-link' %>
+          </div>
+
         </div>
       </ul>
-      <div class="row my-4">
-        <div class="col text-center">
-          <%= link_to "投稿する", posts_path, class: 'btn btn-success' %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
