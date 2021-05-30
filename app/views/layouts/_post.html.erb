@@ -4,7 +4,7 @@
   <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
   <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"駅を選択してください"},  class: 'form-control' %>
   <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
-  <%= f.number_field :time, class: 'form-control', :placeholder => "時間帯を入力ください" %>
+  <%= f.number_field :time, min: 0, max: 23, class: 'form-control', :placeholder => "時間帯を入力ください" %>
   <%= f.select :congestion_level, Post.congestion_levels.keys.map {|k| [k, k]}, {prompt:"混雑具合を選択してください"}, class: 'form-control' %>
   <%= f.text_field :comment, class: 'form-control', :placeholder => "コメントを入力してください" %>
   <%= f.submit %>
