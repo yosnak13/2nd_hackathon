@@ -40,7 +40,7 @@ gem 'dotenv-rails'
 gem 'devise'
 
 gem "chartkick"
-
+gem 'ransack'
 # bootstrapを使用できる
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
