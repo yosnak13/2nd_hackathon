@@ -2,7 +2,7 @@
 <div class="row">
   <%= form_with model: @post, local: true do |f| %>
   <div class="">
-    <%= f.label :direction, "方向" %>
+    <%= f.label :direction, "方面" %>
     <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"方面選択してください"}, class: 'form-control' %>
   </div>
   <div class="">
