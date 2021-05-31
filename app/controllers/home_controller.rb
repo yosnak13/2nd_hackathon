@@ -16,8 +16,7 @@ class HomeController < ApplicationController
 
   def search
     @results = @q.result
-    @search = Post.where(direction:params[:q][:direction]).where(station_id:params[:q][:station_id])
-# binding.pry
+    @search = Post.where(direction:params[:q][:direction]).where(station_id:params[:q][:station_id]).where(day_of_week:params[:q][:day_of_week])
     @posts = Post.all
     @graph = @search.group(:time).average(:congestion_level)
 

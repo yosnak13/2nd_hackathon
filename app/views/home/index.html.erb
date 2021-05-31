@@ -1,15 +1,21 @@
 <div class="container">
 <h1>混雑具合検索</h1>
 <div class="row">
-  <%= search_form_for @q, url: search_path do |f| %>
-  <%= f.label :direction, '方面' %>
-  <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, class: 'form-control' %>
-  <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
-  <%= f.label :station_id, '駅名' %>
-  <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"選択してください"},  class: 'form-control' %>
-  <br>
-  <%= f.submit '検索' %>
-  <% end %>
+    <div class="col">
+        <%= search_form_for @q, url: search_path do |f| %>
+        <%= f.label :direction, '方面' %>
+        <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, class: 'form-control' %>
+    </div>
+    <div class="col">
+        <%= f.label :station_id, '駅名' %>
+        <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"選択してください"},  class: 'form-control' %>
+    </div>
+    <div class="col">
+        <%= f.label :day_of_week, '曜日' %>
+        <%= f.select :day_of_week, {'日曜': "日", '月曜': "月", '火曜': "火", '水曜': "水", '木曜': "木", '金曜': "金", '土曜': "土"}, { include_blank: '曜日を選択してください'}, { class: 'form-control' , required: true } %>
+    </div>
+        <%= f.submit '検索' %>
+        <% end %>
 </div>
 
   <div class="row">
