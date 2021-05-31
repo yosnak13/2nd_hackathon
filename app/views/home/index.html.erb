@@ -20,14 +20,14 @@
   <hr>
   <div class="row">
     <div class="col-6 bgred">
-      <h1>Congestion_level graph</h1>
-      <%= column_chart @graph,
+    <h3>人混み予測</h3>
+    <%= column_chart @graph,
                 id: 'total-attendance-chart',
                 width: '400px',
                 height: '500px',
                 xtitle: "時間帯", 
                 ytitle: "混雑状況",
-                colors: ['#06b'] 
+                colors: ['#cec'] 
             %>
     </div>
     <div class="col-6 bgred">
