@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿しました！"
       redirect_to home_index_path
     else
-      flash.now[:alert] = "空欄を埋めてください"
+      flash.now[:alert] = "入力内容が正しくありません"
       render :index
     end
   end

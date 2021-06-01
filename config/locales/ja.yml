@@ -1,6 +1,14 @@
 ---
 ja:
   activerecord:
+    attributes:
+      post:
+        direction: "方面"
+        station_id: "駅名"
+        date: "日付"
+        time: "時間帯"
+        congestion_level: "混雑具合"
+        train_type: "列車種別"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -17,7 +25,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    
     - 1月
     - 2月
     - 3月
@@ -43,7 +51,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
