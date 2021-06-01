@@ -10,7 +10,7 @@
       <!------------- ログインしている場合 ------------>
       <% if user_signed_in? %>
       <li class='nav-item'>
-        <%= link_to "メイン", home_index_path, class: 'nav-link' %>
+        <%= link_to "メイン", root_path, class: 'nav-link' %>
       </li>
       <li class='nav-item'>
         <%= link_to "「電車アプリとは」", about_path, class: 'nav-link' %>

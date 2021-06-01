@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post.day_of_week = week[day.wday]
     if @post.save
       flash[:notice] = "投稿しました！"
-      redirect_to home_index_path
+      redirect_to root_path
     else
       flash.now[:alert] = "入力内容が正しくありません"
       render :index
