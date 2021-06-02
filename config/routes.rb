@@ -30,9 +30,9 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'users#index'
-  get 'home/index'
+  root to: 'home#index'
   get 'home/about', as: 'about'
+  get 'home/search', as: 'search'
   resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

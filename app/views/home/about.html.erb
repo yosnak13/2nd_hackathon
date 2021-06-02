@@ -82,7 +82,7 @@
           <p>ユーザーからの投稿がリアルタイムで反映されていくので、電車の状況が分かります。</p>
 
           <% if user_signed_in? %>
-          <%= link_to "混雑時間を調べる", home_index_path, class: 'btn btn-success' %>
+          <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success' %>
           <% else %>
           <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success' %>
           <% end %>
