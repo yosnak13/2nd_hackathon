@@ -6,9 +6,7 @@
     <p>ユーザー名：<%= @user.name %>
     <p>メール：<%= @user.email %>
     <p>投稿数：
-      <% if @user.posts.present? %>
-      <%= @user.posts.count %>
-      <% end %>
+      <%= @user.posts.size %>
     <p>最終ログイン：<%= @user.last_sign_in_at %>
       <%= button_to 'ユーザー削除', delete_user_path(@user), data: {confirm: '本当にユーザー削除しますか？'}, method: :delete, class: "btn btn-danger" %>
   </section>

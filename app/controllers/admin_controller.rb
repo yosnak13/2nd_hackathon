@@ -4,15 +4,27 @@ class AdminController < ApplicationController
   before_action :find_user, only: [:show_user, :delete_user]
 
   def users_index
-    @users = User.all.page(params[:page]).per(50)
+    @users = User.all.includes(:posts).order(id: 'ASC').page(params[:page]).per(50)
   end
 
   def posts_index
-    @posts = Post.all.page(params[:page]).per(100)
+    @post = Post.new
+    @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').page(params[:page]).per(100)
+  end
+
+  def posts_search
+    @post = Post.new
+    s_time = params[:post][:start_time]
+    e_time = params[:post][:end_time]
+    s_date = params[:post][:start_date]
+    e_date = params[:post][:end_date]
+    direction = params[:post][:direction]
+    station = params[:post][:station]
+    @posts = Post.s_duration(s_date).e_duration(e_date).s_time(s_time).e_time(e_time).direction(direction).station(station).includes(:user, :station)
   end
 
   def show_user
-    @posts = @user.posts
+    @posts = @user.posts.includes(:user, :station)
   end
 
   def delete_user

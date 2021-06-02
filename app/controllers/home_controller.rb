@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
 
   def index
-    @posts = Post.all.limit(30)
+    @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').limit(30)
     @graph = Post.group(:time).average(:congestion_level)
   end
 
@@ -26,7 +26,7 @@ class HomeController < ApplicationController
 
     @results = @q.result
     @search = Post.where(direction:params[:q][:direction]).where(station_id:params[:q][:station_id]).where(day_of_week:params[:q][:day_of_week])
-    @posts = Post.all
+    @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').limit(30)
     @graph = @search.group(:time).average(:congestion_level)
   end
 

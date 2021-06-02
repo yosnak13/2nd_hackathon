@@ -19,13 +19,13 @@
   </div>
   <hr>
   <br>
-<div class="traffic"><u>西武鉄道の運行状況：<%= @traffic %></u></div>
+  <div class="traffic"><u>西武鉄道の運行状況：<%= @traffic %></u></div>
   <br>
   <hr>
   <div class="row">
     <div class="col-6 bgred">
-    <h3>人混み予測</h3>
-    <%= column_chart @graph,
+      <h3>人混み予測</h3>
+      <%= column_chart @graph,
                 id: 'total-attendance-chart',
                 width: '400px',
                 height: '500px',
@@ -37,7 +37,7 @@
     <div class="col-6 bgred">
       <h3 class="page-header">投稿一覧</h3>
       <ul class="list-group">
-        <div class='card'>
+        <div class='card posts'>
           <div class='card-body'>
             <% @posts.each do |post| %>
             <li class="list-group-item">
@@ -50,13 +50,13 @@
             </li>
             <% end %>
           </div>
-
-          <div class='mx-auto'>
-            <%= link_to "投稿", posts_path, class: 'nav-link' %>
-          </div>
-
         </div>
       </ul>
+      <div class="row my-4">
+        <div class='mx-auto'>
+          <%= link_to "投稿", posts_path, class: 'btn btn-success' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
