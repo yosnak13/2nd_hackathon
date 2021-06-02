@@ -33,7 +33,7 @@
   train_type = ["快速急行/Fライナー", "通勤急行", "急行", "準急", "各駅停車"]
   day = ["日", "月", "火", "水", "木", "金", "土"]
   post = Post.create!(
-    user_id: Faker::Number.within(range: 5..14),
+    user_id: Faker::Number.within(range: 1..2),
     station_id: Faker::Number.within(range: 1..2),
     congestion_level: Faker::Number.within(range: 1..5),
     date: date,
