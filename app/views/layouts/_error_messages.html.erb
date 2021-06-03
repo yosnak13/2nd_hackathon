@@ -1,6 +1,6 @@
 <% if @post.errors.any? %>
-  <div class="alart alart-warning">
-    <ul>
+  <div class="col-6 col-md-4 d-flex justify-content-center alert alert-danger" role="alert"">
+    <ul class="li">
       <% @post.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
