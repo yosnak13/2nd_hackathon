@@ -3,9 +3,9 @@
 
   <div class='row my-3'>
     <div class='col-md-6 my-auto'>
-      <h5 class="text-center">
-        電車の混み具合を確認・投稿できるアプリです。
-      </h5><br><br>
+      <h3 class="text-center">
+        電車の混み具合を確認・<br>投稿できるアプリです。
+      </h3><br><br>
       <div class="row">
         <div class="col-1">
         </div>
@@ -18,15 +18,17 @@
       </div>
     </div>
 
-    <div class='col-md-6'>
-      <p class="text-center">電車の混み具合を５段階で表示</p>
+    <div class='col-md-6 text-center'>
+      <small>電車の混み具合を５段階で表示</small>
       <%= image_tag "/images/graph.png", class: "img-thumbnail"%>
     </div>
   </div>
 
-  <div class='row'>
+  <div class='row my-5'>
     <div class='col-md-6 my-4 px-4'>
-      <p class='text-center'>ユーザーの投稿を見ることができます</p>
+      <div class='text-center'>
+        <small>ユーザーの投稿を見ることができます</small>
+      </div>
       <div class='card'>
         <div class='card-body'>
 
@@ -64,9 +66,9 @@
         <div class="col-1">
         </div>
         <div class="col-10">
-          <h5 class='text-center'>
-            リアルタイムでユーザーの投稿が反映されます！
-          </h5><br><br>
+          <h4 class='text-center'>
+            リアルタイムでユーザーの<br>投稿が反映されます！
+          </h4><br><br>
           <p>
             混み具合は５段階で。時間は1時間ごとに表示されるので、通勤やお出かけの際にチェックすると便利です！
           <p>・・アイコンを並べる予定・・・・・・</p>
@@ -82,7 +84,7 @@
           <p>ユーザーからの投稿がリアルタイムで反映されていくので、電車の状況が分かります。</p>
 
           <% if user_signed_in? %>
-          <%= link_to "混雑時間を調べる", home_index_path, class: 'btn btn-success' %>
+          <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success' %>
           <% else %>
           <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success' %>
           <% end %>

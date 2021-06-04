@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   # 管理者機能
   get 'admin/posts_index', to: 'admin#posts_index', as: 'posts_index'
+  get 'admin/posts_search', to: 'admin#posts_search', as: 'posts_search'
   get 'admin/users_index', to: 'admin#users_index', as: 'users_index'
   get 'admin/:id', to: 'admin#show_user', as: 'show_user'
   delete 'admin/:id/delete', to: 'admin#delete_post', as: 'delete_post'
@@ -29,9 +30,9 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'users#index'
-  get 'home/index'
+  root to: 'home#index'
   get 'home/about', as: 'about'
+  get 'home/search', as: 'search'
   resources :posts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

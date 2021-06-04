@@ -7,9 +7,7 @@
   <p>メール：<%= user.email %>
   <p>最終ログイン：<%= user.last_sign_in_at %>
     <span class="ml-4">投稿数：
-      <% if user.posts.present? %>
-      <%= user.posts.count %>
-      <% end %>
+      <%= user.posts.size %>
     </span>
     <hr>
     <% end %>
