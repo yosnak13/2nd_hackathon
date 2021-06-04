@@ -7,3 +7,21 @@
   width: 500px;
   overflow-y: scroll;
 }
+
+p{
+  font-size: large;
+}
+
+.traffic {
+  padding: 0.5em 1em;
+  margin: 0;
+  font-weight: bold;
+  color: #000000;/*文字色*/
+  background: #FFF;
+  border: solid 3px #2B9348;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+.traffic u {
+  margin: 0; 
+  padding: 0;
+}

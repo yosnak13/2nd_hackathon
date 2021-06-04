@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # ログアウト後のリダイレクト先
   def after_sign_out_path_for(user)
-    new_user_session_path
+    about_path
   end
 
   protected
