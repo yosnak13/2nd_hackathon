@@ -41,6 +41,6 @@
     time: Faker::Number.within(range: 0..23),
     direction: Faker::Number.within(range: 0..1),
     train_type: train_type[Faker::Number.within(range: 0..4)],
-    comment: Faker::Games::StreetFighter.name,
+    comment: Faker::Games::StreetFighter.quote,
   )
 end

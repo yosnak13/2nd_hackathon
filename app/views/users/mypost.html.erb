@@ -3,14 +3,17 @@
 <div class="container">
   <ul class="list-group">
     <% @posts.each do |post| %>
-          <li class="list-group-item">
-       <div>路線<%= post.direction %>方面&ensp;
+    <li class="list-group-item">
+      <div>路線<%= post.direction %>方面&ensp;
         駅名:<%= post.station.station_name %>&ensp;
-       <%= post.time %>時頃</div>
-       <div>混雑度:<%= post.congestion_level %></div>
-       <div>コメント:<%= post.comment %>
-          </div>
-     </li>
+        <%= post.time %>時頃</div>
+      <div>混雑度:<%= post.congestion_level %></div>
+      <div>コメント:<%= post.comment %>
+      </div>
+    </li>
     <% end %>
   </ul>
+  <div class="pagination justify-content-center mt-3">
+    <%= paginate @posts %>
+  </div>
 </div>
