@@ -94,7 +94,7 @@ Rails.application.configure do
 
   # 本番環境用
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.action_mailer.default_url_options = { host: 'https://torecomigraph.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'torecomigraph.herokuapp.com' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
