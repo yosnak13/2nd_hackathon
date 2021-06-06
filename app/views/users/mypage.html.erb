@@ -1,7 +1,7 @@
 <div class="container w-80">
   <h1>マイページ</h1>
 
-  <hr>
+<hr>
 
   <%= link_to( mypost_user_path(current_user.id),class: "decoration change") do %>
     <div class="d-flex justify-content-between">
@@ -22,7 +22,7 @@
     </div>
   <% end %>
 
-  <hr>
+<hr>
 
   <%= link_to( '#' , class: "decoration change") do %>
     <div class="d-flex justify-content-between">
@@ -43,7 +43,7 @@
     </div>
   <% end %>
 
-  <hr>
+<hr>
 
   <%= link_to( '#', class: "decoration change") do %>
     <div class="d-flex justify-content-between">
@@ -64,7 +64,7 @@
     </div>
   <% end %>
 
-  <hr>
+<hr>
 
   <%= link_to( destroy_user_session_path, method: :delete, class: "decoration change" ) do %>
     <div class="d-flex justify-content-between">
@@ -85,6 +85,6 @@
     </div>
   <% end %>
 
+<hr>
 
 </div>
-
