@@ -84,8 +84,8 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  # production全体で使用するURLはこちら
-  default_url_options[:protocol] = "https"
-  default_url_options[:host] = 'torecomigraph.herokuapp.com'
+  # # production全体で使用するURLはこちら
+  # default_url_options[:protocol] = "https"
+  # default_url_options[:host] = 'torecomigraph.herokuapp.com'
 
 end

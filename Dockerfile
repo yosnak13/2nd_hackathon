@@ -15,3 +15,4 @@ EXPOSE 3000
 ENV LANG C.UTF-8
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
+# CMD [RAILS_ENV=production rails server ]
