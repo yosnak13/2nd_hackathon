@@ -26,6 +26,10 @@ class HomeController < ApplicationController
     @search = Post.where(direction:params[:q][:direction]).where(station_id:params[:q][:station_id]).where(day_of_week:params[:q][:day_of_week])
     @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').limit(30)
     @graph = @search.group(:time).average(:congestion_level)
+    respond_to do |format|
+      format.html { render :index }
+      format.js
+    end
   end
 
 

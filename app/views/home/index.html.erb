@@ -2,7 +2,7 @@
   <h1>混雑具合検索</h1>
   <div class="row">
     <div class="col">
-      <%= search_form_for @q, url: search_path do |f| %>
+      <%= search_form_for @q, url: search_path, remote: true do |f| %>
       <%= f.label :direction, '方面' %>
       <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, {class: 'form-control', required: true } %>
     </div>
@@ -19,7 +19,7 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col-6 bgred">
+    <div class="col-6 bgred graph">
       <h3>人混み予測</h3>
       <%= column_chart @graph,
                 id: 'total-attendance-chart',

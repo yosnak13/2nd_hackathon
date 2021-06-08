@@ -87,13 +87,15 @@
           <br>
           <p>ユーザーからの投稿がリアルタイムで反映されていくので、電車の状況が分かります。</p>
 
-          <% if user_signed_in? %>
-          <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success' %>
-          <% else %>
-          <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success' %>
-          <% end %>
+          <div class="row">
+            <% if user_signed_in? %>
+            <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success mb-2 mx-auto' %>
+            <% else %>
+            <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success mb-2 mx-auto' %>
+            <% end %>
 
-          <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-success mx-2' %><br><br>
+            <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-success mx-auto mb-2' %>
+          </div>
           <p class="small text-danger">*会員登録するとお気に入り駅の登録や、投稿ができます</p>
           <div class="col-1">
           </div>
