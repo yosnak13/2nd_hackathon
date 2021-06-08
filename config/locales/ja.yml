@@ -9,6 +9,7 @@ ja:
         time: "時間帯"
         congestion_level: "混雑具合"
         train_type: "列車種別"
+        station: "駅名"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
