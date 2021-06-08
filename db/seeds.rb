@@ -9,23 +9,23 @@
 
 
 # station一覧作成
-# require "csv"
-# CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
-#   Station.create(
-#     station_name: row[0],
-#     station_number: row[1],
-#     line: row[2],
-#   )
-# end
+require "csv"
+CSV.foreach('db/station_shinjukuline.csv', headers: true) do |row|
+  Station.create(
+    station_name: row[0],
+    station_number: row[1],
+    line: row[2],
+  )
+end
 
 # サンプルuser作成
-# 1.times do
-#   User.create!(
-#     name: Faker::Games::StreetFighter.character,
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password(min_length: 8),
-#   )
-# end
+1.times do
+  User.create!(
+    name: Faker::Games::StreetFighter.character,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 8),
+  )
+end
 
 # サンプルpost作成
 500.times do
