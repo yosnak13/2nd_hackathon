@@ -3,9 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 
+// 投稿（掲示板）表示部分
 .posts{
   height: 500px;
-  width: 500px;
+  width: auto;
   overflow-y: scroll;
 }
 
