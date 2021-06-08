@@ -32,7 +32,6 @@ class HomeController < ApplicationController
     end
   end
 
-
   def post_params
     params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type, :station_id)
   end
