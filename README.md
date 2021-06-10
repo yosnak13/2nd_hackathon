@@ -28,10 +28,6 @@ Pass: ruby1111
 - グラフで混雑具合をわかりやすく表現しました
 
 
-## 洗い出した要件	要件定義を、マークダウンで記述します。
-実装した機能についてのGIFと説明	実装した機能について、それぞれどのような特徴があるのか列挙します。GIFを添えることで、イメージがしやすくなります。
-
-
 ## ローカルでの動作方法（Usage）
 
 dockerを使用しているため、dockerをインストールしてください。
@@ -44,8 +40,8 @@ $ docker-compose exec web rails db:create
 $ docker-compose up
 ```
 ## 開発環境
-Ruby 2.6.5
-Rails 5.2.5
+Ruby 2.6.5  
+Rails 5.2.5  
 Docker version 20.10.6
 
 ## 作成者
