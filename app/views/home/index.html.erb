@@ -1,38 +1,44 @@
 <div class="container">
   <h1>混雑具合検索</h1>
   <div class="row">
-    <div class="col">
-      <%= search_form_for @q, url: search_path do |f| %>
+    <div class="col-sm-3">
+      <%= search_form_for @q, url: search_path, remote: true do |f| %>
       <%= f.label :direction, '方面' %>
-      <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, class: 'form-control' %>
+      <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"選択してください"}, {class: 'form-control', required: true } %>
     </div>
-    <div class="col">
+    <div class="col-sm-3">
       <%= f.label :station_id, '駅名' %>
-      <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"選択してください"},  class: 'form-control' %>
+      <%= f.collection_select :station_id, Station.all, :id, :station_name, {prompt:"選択してください"}, {class: 'form-control', required: true }%>
     </div>
-    <div class="col">
+    <div class="col-sm-3">
       <%= f.label :day_of_week, '曜日' %>
       <%= f.select :day_of_week, {'日曜': "日", '月曜': "月", '火曜': "火", '水曜': "水", '木曜': "木", '金曜': "金", '土曜': "土"}, { include_blank: '曜日を選択してください'}, { class: 'form-control' , required: true } %>
     </div>
-    <%= f.submit '検索' %>
+    <div class="col-sm-3 search_btm ">
+      <%= f.submit '検索' %>
+    </div>
     <% end %>
   </div>
   <hr>
+  <br>
+  <div class="traffic"><u>西武鉄道の運行状況：<%= @traffic %></u></div>
+  <br>
+  <hr>
   <div class="row">
-    <div class="col-6 bgred">
+    <div class="col-md-6 col-sm-12 bgred graph mb-4">
       <h3>人混み予測</h3>
       <%= column_chart @graph,
                 id: 'total-attendance-chart',
                 min: 0,
                 max: 5, 
-                width: '400px',
+                width: 'auto',
                 height: '500px',
                 xtitle: "時間帯", 
                 ytitle: "混雑状況",
                 colors: ['#9c6'] 
             %>
     </div>
-    <div class="col-6 bgred">
+    <div class="col-md-6 bgred">
       <h4 class="page-header text-center">最新投稿</h4>
       <ul class="list-group">
         <div class='card posts'>
@@ -43,8 +49,8 @@
               <div><%= post.direction %>方面&ensp;
                 駅名:<%= post.station.station_name %>&ensp;
                 <%= post.time %>時頃</div>
-              <div>コメント:<%= post.comment %>&ensp;
-                混雑度:<%= post.congestion_level %></div>
+              <div>混雑度:<%= post.congestion_level %>&ensp;
+                コメント:<%= post.comment %></div>
             </li>
             <% end %>
           </div>
