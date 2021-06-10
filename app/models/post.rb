@@ -4,7 +4,6 @@ class Post < ApplicationRecord
 
   validates :direction, presence: true
   validates :train_type, presence: true
-  validates :station_id, presence: true
   validates :date, timeliness: { on_or_before: :now, format: '%Y-%m-%d'}, allow_blank: false
   validates :day_of_week, presence: true
   validates :time, presence: true

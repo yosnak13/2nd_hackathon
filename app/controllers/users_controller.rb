@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def mypost
     @user = current_user.name
-    @posts = Post.where("user_id = #{current_user.id}" )
+    @posts = Post.where("user_id = #{current_user.id}").includes(:station).order(date: 'DESC', time: 'DESC').page(params[:page]).per(100)
   end
 
   def delete

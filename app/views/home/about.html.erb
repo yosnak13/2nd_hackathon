@@ -1,11 +1,13 @@
 <div class='container'>
-  <h2 class='text-center my-4'>「トレコミグラフ」とは</h2>
+  <h3 class='text-center my-4'>「トレコミグラフ」とは</h3>
 
   <div class='row my-3'>
     <div class='col-md-6 my-auto'>
-      <h3 class="text-center">
-        電車の混み具合を確認・<br>投稿できるアプリです。
-      </h3><br><br>
+      <div class=" description">
+        <h3 class="about">電車の混み具合を確認・</h3>
+        <h3 class="about">投稿できるアプリです。</h3>
+        <br><br>
+      </div>
       <div class="row">
         <div class="col-1">
         </div>
@@ -33,28 +35,28 @@
         <div class='card-body'>
 
           <li class="list-group-item">
-            <div>名前：電車太郎</div>
-            <div>西武新宿方面&ensp;
-              駅名：上石神井 駅
-              8:00時頃</div>
-            <div>コメント：週明けとあって、中々混んでる
-              混雑度:混んでる</div>
+            <div>名前: 電車太郎</div>
+            <div><span class="mr-3">西武新宿方面</span><span class="mr-3">
+                上石神井駅</span>
+              <span>8:00時頃</span></div>
+            <div>混雑度: 座席の前で立てる</div>
+            <div>コメント: 週明けとあって、中々混んでる</div>
           </li>
           <li class="list-group-item">
-            <div>名前：鉄道一郎</div>
-            <div>本川越方面&ensp;
-              駅名：高田馬場 駅
-              14:00時頃</div>
-            <div>コメント：意外と座れる。
-              混雑度:混んでる</div>
+            <div>名前: 鉄道一郎</div>
+            <div><span class="mr-3">本川越方面</span><span class="mr-3">
+                高田馬場駅</span>
+              <span>14:00時頃</span></div>
+            <div>混雑度: 着席できる</div>
+            <div>コメント: 意外と座れる。</div>
           </li>
           <li class="list-group-item">
-            <div>名前：西武道雄</div>
-            <div>本川越方面&ensp;
-              駅名：西武新宿駅
-              18:00時頃</div>
-            <div>コメント: やっぱ、帰宅ラッシュだよねぇ
-              混雑度:混んでる</div>
+            <div>西武道雄</div>
+            <div><span class="mr-3">本川越方面</span><span class="mr-3">
+                西武新宿駅
+              </span><span>18:00時頃</span></div>
+            <div>混雑度: 立っているのがやっと</div>
+            <div>コメント: やっぱ、帰宅ラッシュだよねぇ</div>
           </li>
 
         </div>
@@ -66,9 +68,11 @@
         <div class="col-1">
         </div>
         <div class="col-10">
-          <h4 class='text-center'>
-            リアルタイムでユーザーの<br>投稿が反映されます！
-          </h4><br><br>
+          <div class="description">
+            <h4 class='about'>リアルタイムでユーザーの</h4>
+            <h4 class='about'>投稿が反映されます！</h4>
+            <br><br>
+          </div>
           <p>
             混み具合は５段階で。時間は1時間ごとに表示されるので、通勤やお出かけの際にチェックすると便利です！
           <p>・・アイコンを並べる予定・・・・・・</p>
@@ -83,13 +87,15 @@
           <br>
           <p>ユーザーからの投稿がリアルタイムで反映されていくので、電車の状況が分かります。</p>
 
-          <% if user_signed_in? %>
-          <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success' %>
-          <% else %>
-          <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success' %>
-          <% end %>
+          <div class="row">
+            <% if user_signed_in? %>
+            <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success mb-2 mx-auto' %>
+            <% else %>
+            <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success mb-2 mx-auto' %>
+            <% end %>
 
-          <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-success mx-2' %><br><br>
+            <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-success mx-auto mb-2' %>
+          </div>
           <p class="small text-danger">*会員登録するとお気に入り駅の登録や、投稿ができます</p>
           <div class="col-1">
           </div>
