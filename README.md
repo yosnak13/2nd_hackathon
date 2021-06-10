@@ -31,8 +31,6 @@ Pass: ruby1111
 ## 洗い出した要件	要件定義を、マークダウンで記述します。
 実装した機能についてのGIFと説明	実装した機能について、それぞれどのような特徴があるのか列挙します。GIFを添えることで、イメージがしやすくなります。
 
-## データベース設計	ER図等を添付しましょう。
-
 
 ## ローカルでの動作方法（Usage）
 
@@ -52,8 +50,8 @@ Docker version 20.10.6
 
 ## 作成者
 
-yosnak13: https://github.com/yosnak13
-Kazuya-Sakashita: https://github.com/Kazuya-Sakashita
-hiroshi-00: https://github.com/hiroshi-00
-moonlight4617: https://github.com/moonlight4617
+yosnak13: https://github.com/yosnak13  
+Kazuya-Sakashita: https://github.com/Kazuya-Sakashita  
+hiroshi-00: https://github.com/hiroshi-00  
+moonlight4617: https://github.com/moonlight4617  
 geta-mac: https://github.com/geta-mac
