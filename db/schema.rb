@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_030615) do
+ActiveRecord::Schema.define(version: 2021_06_11_055528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorite_stations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_favorite_stations_on_station_id"
+    t.index ["user_id"], name: "index_favorite_stations_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_favorites_on_station_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id"
@@ -62,4 +80,8 @@ ActiveRecord::Schema.define(version: 2021_05_22_030615) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorite_stations", "stations"
+  add_foreign_key "favorite_stations", "users"
+  add_foreign_key "favorites", "stations"
+  add_foreign_key "favorites", "users"
 end

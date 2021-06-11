@@ -1,0 +1,22 @@
+<div class="container  d-flex justify-content-center mt-3">
+  <div class="w-75">
+    <h1>お気に入り</h1>
+
+    <hr>
+
+    <div class="row">
+      <% @favorites.each do |favorite| %>
+      <div class="col-md-8 mt-2">
+        <div class="d-inline-flex">
+          <div class="container mt-3">
+            <h5 class="w-100 samazon-favorite-item-text"><%= favorite.station.station_name %></h5>
+            <h6 class="w-100samazon-favorite-item-text"><%= favorite.station.station_number %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>
+</div>

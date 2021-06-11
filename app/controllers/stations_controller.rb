@@ -1,9 +1,10 @@
-class HomeController < ApplicationController
+class StationsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :set_q, only: [:index, :search]
 
 
   def index
+    @stations = Stations.all
     @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').limit(30)
     @graph = Post.group(:time).average(:congestion_level)
   end
@@ -16,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    
+    @stations = Station.all
     require 'nokogiri'
     require 'open-uri'
     url = 'https://transit.yahoo.co.jp/traininfo/detail/86/0/'
@@ -31,8 +32,6 @@ class HomeController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:comment, :congestion_level, :date, :day_of_week, :time, :direction, :train_type, :station_id)
+    params.require(:station).permit(:station_name, :station_number, :line, :user_id)
   end
-
-  
 end
