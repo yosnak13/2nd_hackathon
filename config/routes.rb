@@ -29,13 +29,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :stations do
-    root to: 'stations#index'
+  scope :stations do
     get 'stations/search', as: 'search'
     resource :favorites, only: [:create, :destroy]
   end
 
-  
+  root to: 'stations#index'
   get 'home/about', as: 'about'
   
   resources :posts
