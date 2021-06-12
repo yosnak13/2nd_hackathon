@@ -25,7 +25,6 @@
   </div>
   <div class="col-sm-10 col-md-4">
     <%= f.label :time, "時間帯" %>
-
     <%= f.select :time, Post.times.keys.map {|k| [k, k]}, {prompt:"時間帯を選択してください"}, class: 'form-control' %>
   </div>
 </div>
