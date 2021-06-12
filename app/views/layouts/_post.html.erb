@@ -8,7 +8,7 @@
     <%= f.label :direction, "方面" %>
     <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"方面選択してください"}, class: 'form-control' %>
     <% f.label :train_type, "列車種別" %>
-    <!--種別投稿が未実装のた表示しない-->
+    <!--種別投稿が未実装のため表示しない-->
     <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
   </div>
 
@@ -25,7 +25,8 @@
   </div>
   <div class="col-sm-10 col-md-4">
     <%= f.label :time, "時間帯" %>
-    <%= f.number_field :time, min: 0, max: 23, class: 'form-control', :placeholder => "時間帯を入力ください" %>
+
+    <%= f.select :time, Post.times.keys.map {|k| [k, k]}, {prompt:"時間帯を選択してください"}, class: 'form-control' %>
   </div>
 </div>
 
