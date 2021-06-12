@@ -3,14 +3,12 @@
 </div>
 
 <%= form_with model: @post, local: true do |f| %>
-<div class="row justify-content-evenly my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
+<div class="row justify-content-center">
   <div class="col-sm-10 col-md-4">
     <%= f.label :direction, "方面" %>
     <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"方面選択してください"}, class: 'form-control' %>
     <% f.label :train_type, "列車種別" %>
-    <!--種別投稿が未実装のた表示しない-->
+    <!--種別投稿が未実装のため表示しない-->
     <%= f.hidden_field :train_type,  value: "快速急行/Fライナー", class: 'form-control' %>
   </div>
 
@@ -20,30 +18,37 @@
   </div>
 </div>
 
-<div class="row justify-content-evenly my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
+<div class="row justify-content-center">
   <div class="col-sm-10 col-md-4">
     <%= f.label :date, "日付" %>
     <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
   </div>
   <div class="col-sm-10 col-md-4">
-    <%= f.label :time, "時間" %>
-    <%= f.number_field :time, min: 0, max: 23, class: 'form-control', :placeholder => "時間帯を入力ください" %>
+    <%= f.label :time, "時間帯" %>
+    <%= f.select :time, Post.times.keys.map {|k| [k, k]}, {prompt:"時間帯を選択してください"}, class: 'form-control' %>
   </div>
 </div>
 
-<div class="row justify-content-evenly my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
-  <div class="col-sm-10 col-md-8">
-    <%= f.label :congestion_level, "混雑具合" %>
-    <%= f.select :congestion_level, Post.congestion_levels.keys.map {|k| [k, k]}, {prompt:"混雑具合を選択してください"}, class: 'form-control' %>
+<div class="row justify-content-center">
+  <%= f.label :congestion_level, "混雑具合" %>
+</div>
+
+<div class="col-md-8 justify-content-center mx-auto">
+  <div class="row justify-content-center">
+    <%= image_tag "混雑1.jpg", id: "1", class:"icon congestion_icons", alt:"着席できる" %>
+    <%= image_tag "混雑2.jpg", id: "2", class:"icon congestion_icons", alt:"座れないが立って乗れる" %>
+    <%= image_tag "混雑3.jpg", id: "3", class:"icon congestion_icons", alt:"混雑しているがつり革は持てる" %>
+    <%= image_tag "混雑4.jpg", id: "4", class:"icon congestion_icons", alt:"ドア付近から動けないほど混雑している" %>
+    <%= image_tag "混雑5.jpg", id: "5", class:"icon congestion_icons", alt:"乗り切れない人がいるほど混雑している" %>
+    <%= f.hidden_field :congestion_level, value: "", id: "value" %>
   </div>
 </div>
-<div class="row justify-content-aroud my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
+
+<div class="row justify-content-center">
+  <p id="selected">混雑レベル</p>
+</div>
+
+<div class="row justify-content-center">
   <div class="col-sm-10 col-md-8">
     <%= f.text_area :comment, class: 'form-control', :placeholder => "コメントを入力してください" %>
   </div>
