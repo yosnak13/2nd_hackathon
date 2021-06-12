@@ -4,6 +4,12 @@ class HomeController < ApplicationController
 
 
   def index
+    require 'nokogiri'
+    require 'open-uri'
+    url = 'https://transit.yahoo.co.jp/traininfo/detail/86/0/'
+    doc = Nokogiri::HTML(open(url),nil,"utf-8")
+    nodes = doc.xpath('//*[@id="mdServiceStatus"]/dl/dt/text()')
+    @traffic = nodes.each { |node| pp node }
     @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').limit(30)
     @graph = Post.group(:time).average(:congestion_level)
   end

@@ -15,7 +15,7 @@
       <%= f.select :day_of_week, {'日曜': "日", '月曜': "月", '火曜': "火", '水曜': "水", '木曜': "木", '金曜': "金", '土曜': "土"}, { include_blank: '曜日を選択してください'}, { class: 'form-control' , required: true } %>
     </div>
     <div class="col-sm-3 search_btm ">
-    <%= f.submit '検索' %>
+      <%= f.submit '検索' %>
     </div>
     <% end %>
   </div>
@@ -25,14 +25,12 @@
   <br>
   <hr>
   <div class="row">
-  <div class="col-md-6 bgred">
-  <h3>人混み予測</h3>
+    <div class="col-md-6 bgred">
+      <h3>人混み予測</h3>
       <%= column_chart @graph,
                 id: 'total-attendance-chart',
                 min: 0,
                 max: 5, 
-                width: 'auto',
-                height: '500px',
                 xtitle: "時間帯", 
                 ytitle: "混雑状況",
                 colors: ['#9c6'],

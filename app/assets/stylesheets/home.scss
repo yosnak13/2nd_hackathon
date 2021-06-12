@@ -24,7 +24,7 @@ p{
   border-radius: 10px;/*角の丸み*/
 }
 .traffic u {
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }
 
@@ -35,4 +35,13 @@ p{
 
 .description{
   text-align: center;
+}
+
+.icon {
+  width: auto;
+  max-width: 100%;
+  height: 80px;
+  object-fit: contain;
+  margin: 20px auto;
+  filter: opacity(20%);
 }
