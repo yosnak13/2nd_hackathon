@@ -38,9 +38,10 @@ p{
 }
 
 .icon {
-   width: auto;
-   max-width: 100%;
-   height: 80px;
-   object-fit: contain;
-   margin: 20px auto;
- }
+  width: auto;
+  max-width: 100%;
+  height: 80px;
+  object-fit: contain;
+  margin: 20px auto;
+  filter: opacity(20%);
+}
