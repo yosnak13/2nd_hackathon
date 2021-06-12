@@ -3,9 +3,7 @@
 </div>
 
 <%= form_with model: @post, local: true do |f| %>
-<div class="row justify-content-evenly my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
+<div class="row justify-content-center">
   <div class="col-sm-10 col-md-4">
     <%= f.label :direction, "方面" %>
     <%= f.select :direction, Post.directions.keys.map {|k| [k, k]}, {prompt:"方面選択してください"}, class: 'form-control' %>
@@ -20,9 +18,7 @@
   </div>
 </div>
 
-<div class="row justify-content-evenly my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
+<div class="row justify-content-center">
   <div class="col-sm-10 col-md-4">
     <%= f.label :date, "日付" %>
     <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
@@ -33,17 +29,23 @@
   </div>
 </div>
 
-<div class="row justify-content-evenly my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
-  <div class="col-sm-10 col-md-8">
-    <%= f.label :congestion_level, "混雑具合" %>
-    <%= f.select :congestion_level, Post.congestion_levels.keys.map {|k| [k, k]}, {prompt:"混雑具合を選択してください"}, class: 'form-control' %>
+<div class="row justify-content-center">
+  <%= f.label :congestion_level, "混雑具合" %>
+</div>
+
+<div class="col-md-8 justify-content-center mx-auto">
+  <div class="row justify-content-center">
+    <%= image_tag "混雑1.jpg", alt:"混雑1", id: "0", class:"icon congestion_icons" %>
+    <%= image_tag "混雑2.jpg", alt:"混雑2", id: "1", class:"icon congestion_icons" %>
+    <%= image_tag "混雑3.jpg", alt:"混雑3", id: "2", class:"icon congestion_icons" %>
+    <%= image_tag "混雑4.jpg", alt:"混雑4", id: "3", class:"icon congestion_icons" %>
+    <%= image_tag "混雑5.jpg", alt:"混雑5", id: "4", class:"icon congestion_icons" %>
+    <%= f.hidden_field :congestion_level, value: "", id: "value" %>
   </div>
 </div>
-<div class="row justify-content-aroud my-4">
-  <div class="col-sm-0 col-md-2">
-  </div>
+
+
+<div class="row justify-content-center">
   <div class="col-sm-10 col-md-8">
     <%= f.text_area :comment, class: 'form-control', :placeholder => "コメントを入力してください" %>
   </div>
