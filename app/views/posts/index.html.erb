@@ -6,6 +6,9 @@
 $(".congestion_icons").click(function () {
   $(this).css("filter", "opacity(100%)");
   $(".congestion_icons").not(this).css("filter", "opacity(20%)");
+  var congestion_level = $(this).attr("id");
+  document.querySelector("#value").value = congestion_level;
+  var click =  $(this).attr("alt");
+  $('#selected').text(click);
 });
-
 </script>
