@@ -4,8 +4,7 @@
 	
 ## アプリケーション概要
 西武新宿線の混雑状況を投稿・共有することができる投稿型アプリケーションです。
-![スクリーンショット 2021-06-08 7 32 40](https://user-images.githubusercontent.com/64535376/121603395-a7392a00-ca83-11eb-884d-f16231a2dbec.png)
-![スクリーンショット 2021-06-08 7 32 28](https://user-images.githubusercontent.com/64535376/121603486-cdf76080-ca83-11eb-8836-6b5c49ae97d6.png)
+![torecomigraph_first](https://user-images.githubusercontent.com/64535376/121761584-a4196900-cb6b-11eb-98f8-1171aa25120e.gif)
 
 ## プロジェクト概要
 共同開発を経験してみたい未経験エンジニアが集まってハッカソンを実施。
