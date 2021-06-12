@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class FavoritesController < ApplicationControllerdo
   def create
     @favorite = current_user.favorites.create(station_id: params[:station_id])
     redirect_back(fallback_location: root_path)

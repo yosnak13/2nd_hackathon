@@ -15,13 +15,12 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    @user = User.find(params[:id])
-    @station = @user.station
-    @favorites = @user.favorite_stations
+    @user = current_user
+    @favorites = @user.favorites
     if @favorites.present?
       true
     else
-      redirect_to root_path, notice: '商品がありません'
+      redirect_to root_path
     end
   end
 

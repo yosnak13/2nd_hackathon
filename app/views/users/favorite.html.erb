@@ -6,14 +6,17 @@
 
     <div class="row">
       <% @favorites.each do |favorite| %>
-      <div class="col-md-8 mt-2">
-        <div class="d-inline-flex">
-          <div class="container mt-3">
-            <h5 class="w-100 samazon-favorite-item-text"><%= favorite.station.station_name %></h5>
-            <h6 class="w-100samazon-favorite-item-text"><%= favorite.station.station_number %></h6>
+        <div class="col-md-8 mt-2">
+          <div class="d-inline-flex">
+            <div class="container mt-3">
+              <h4 class="w-100">駅名：<%= favorite.station.station_name %></h4>
+              <h6 class="w-100">駅No：<%= favorite.station.station_number %></h6>
+              <h6 class="w-100">路線名：<%= favorite.station.line %></h6>
+
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
 
     <hr>

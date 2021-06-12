@@ -26,15 +26,16 @@ Rails.application.routes.draw do
     member do
       get 'mypage', to: 'users#mypage'
       get 'mypost', to: 'users#mypost'
+      get  "favorite", to: "users#favorite"
     end
   end
 
-  scope :stations do
-    get 'stations/search', as: 'search'
+  resources :stations, except: %i[index show new create edit update destroy] do
     resource :favorites, only: [:create, :destroy]
   end
 
   root to: 'stations#index'
+  get 'stations/search', as: 'search'
   get 'home/about', as: 'about'
   
   resources :posts

@@ -22,17 +22,7 @@
   
   <div class="traffic">
     <u>
-      <% @stations.each do |station| %>
-        <% if user_signed_in? %>
-          <% if station.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-              <p><span>お気に入り解除: </span><%=link_to station.favorites.count, station_favorites_path(station.id), method: :delete %></p>
-          <% else %>
-              <p><span>お気に入り登録: </span><%=link_to station.favorites.count, station_favorites_path(station.id), method: :post %></p>
-          <% end %>
-        <% else %>
-          <p><span>お気に入り数: </span><%= station.favorites.count %></p>
-        <% end %>
-      <% end %>
+      <%= render 'favorites/favorites' %>
       西武鉄道の運行状況：<%= @traffic %>
     </u>
   </div>

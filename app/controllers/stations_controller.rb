@@ -4,7 +4,6 @@ class StationsController < ApplicationController
 
 
   def index
-    @stations = Stations.all
     @posts = Post.all.includes(:user, :station).order(date: 'DESC', time: 'DESC').limit(30)
     @graph = Post.group(:time).average(:congestion_level)
   end
@@ -17,7 +16,7 @@ class StationsController < ApplicationController
   end
 
   def search
-    @stations = Station.all
+    @station = Station.find_by(params[:station_id])
     require 'nokogiri'
     require 'open-uri'
     url = 'https://transit.yahoo.co.jp/traininfo/detail/86/0/'
