@@ -1,21 +1,23 @@
-<div class = 'container'>
+<div class='container'>
   <div class='row justify-content-center'>
-    <div class = 'col-7'>
-    <h2>Forgot your password?</h2>
-
-    <p>
-      ご登録時のメールアドレスを入力してください。<br>
-      パスワード再発行用のメールをお送りします。
-    </p>
-
-    <%= form_with(model: resource, scope: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <!---- form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| ----->
+    <div class='col-lg-7 col-sm-12'>
+      <div class='row  justify-content-center'>
+        <h3 class='my-4'>パスワードをお忘れですか?</h3>
+      </div>
+      <div class='row  justify-content-center'>
+        <p>
+          ご登録時のメールアドレスを入力してください。<br>
+          パスワード再発行用のメールをお送りします。
+        </p>
+      </div>
+      <%= form_with(model: resource, scope: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <!---- form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| ----->
       <%= render 'users/shared/error_messages', resource: resource %>
 
-      <div class = 'form-group row'>
-        <%= f.label :email, "メールアドレス", class: 'col-5' %>
+      <div class='form-group row'>
+        <%= f.label :email, "メールアドレス", class: 'col-sm-12 col-lg-4' %>
 
-        <div class='col-7'>
+        <div class='col-lg-8 col-sm-12'>
           <%=
             f.email_field :email,
             class: 'form-control',
@@ -27,17 +29,18 @@
         </div>
       </div>
 
-    <div class = 'form-group text-center'>
-      <%= f.submit "送信", class: 'btn' %>
+      <div class='form-group text-center'>
+        <%= f.submit "送信", class: 'btn btn-success mt-4' %>
+      </div>
+
+      <% end %>
+
+      <hr>
+
+      <div class='form-group text-center'>
+        <%= render 'users/shared/links' %>
+      </div>
+
     </div>
-
-    <% end %>
-
-    <hr>
-    
-    <div class='form-group text-center'>
-      <%= render 'users/shared/links' %>
-    </div>
-
   </div>
 </div>
