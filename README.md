@@ -6,7 +6,10 @@
 ## アプリケーション概要
 
 西武新宿線の混雑状況を投稿・共有することができる投稿型アプリケーションです。<br>
-![torecomigraph_first](https://user-images.githubusercontent.com/64535376/121761584-a4196900-cb6b-11eb-98f8-1171aa25120e.gif)
+TOP画面での駅と方面を絞って混雑度を検索<br>
+![torekomi3](https://user-images.githubusercontent.com/64535376/121823869-e618eb00-cce2-11eb-8c6d-55338b12ab96.gif)<br>
+投稿画面<br>
+![torekomi4](https://user-images.githubusercontent.com/64535376/121823874-f0d38000-cce2-11eb-869b-9864e07b1555.gif)
 
 ## プロジェクト概要
 
