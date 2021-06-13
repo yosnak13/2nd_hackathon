@@ -4,13 +4,13 @@
 @import 'bootstrap';
 
 // 投稿（掲示板）表示部分
-.posts{
+.posts {
   height: 500px;
   width: auto;
   overflow-y: scroll;
 }
 
-p{
+p {
   font-size: large;
 }
 
@@ -18,22 +18,26 @@ p{
   padding: 0.5em 1em;
   margin: 0;
   font-weight: bold;
-  color: #000000;/*文字色*/
+  color: #000000;
+  /*文字色*/
   background: #FFF;
-  border: solid 3px #2B9348;/*線*/
-  border-radius: 10px;/*角の丸み*/
+  border: solid 3px #0077B6;
+  /*線*/
+  border-radius: 10px;
+  /*角の丸み*/
 }
+
 .traffic u {
   margin: 0;
   padding: 0;
 }
 
 .about {
-  background:linear-gradient(transparent 70%, #FFFF3F 0%);
+  background: linear-gradient(transparent 70%, #FFFF3F 0%);
   display: inline-block;
 }
 
-.description{
+.description {
   text-align: center;
 }
 

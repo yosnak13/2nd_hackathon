@@ -21,7 +21,7 @@
     </li>
     <li>混雑具合：<%= image_tag "#{@icon[post.congestion_level - 1]}", alt:"混雑#{post.congestion_level}", class:"icon-top" %></li>
     <li>コメント：<%= post.comment%></li>
-    <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-warning" %>
+    <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-secondary" %>
   </ul>
   <hr>
   <% end %>
