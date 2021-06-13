@@ -1,4 +1,4 @@
-<% provide(:title, "投稿検索（管理者）") %>
+<% provide(:title, "投稿一覧（管理者）") %>
 <main class="container">
   <h3 class="text-center">投稿一覧</h3>
   <h5>投稿検索</h5>
@@ -11,7 +11,6 @@
   駅：<%= f.collection_select :station, Station.all, :id, :station_name, {prompt: "全選択"} , class: 'mr-4'%>
   <%= f.submit "検索", class: 'ml-4' %>
   <% end %>
-  <%= link_to "全投稿へ戻る", posts_index_path, class: 'btn btn-outline-primary' %>
   <hr>
   <% @posts.each do |post| %>
   <ul class="list-unstyled">
@@ -22,8 +21,9 @@
     </li>
     <li>混雑具合：<%= post.congestion_level%></li>
     <li>コメント：<%= post.comment%></li>
-    <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-warning" %>
+    <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-secondary" %>
   </ul>
   <hr>
   <% end %>
-</main>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
