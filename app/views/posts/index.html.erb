@@ -3,15 +3,15 @@
   <%= render'layouts/post'%>
 </div>
 <script>
-$(".congestion_icons").click(function () {
-  //クリックしたアイコンのみ透明度をなくす
-  $(this).css("filter", "opacity(100%)");
-  $(".congestion_icons").not(this).css("filter", "opacity(20%)");
-  //クリックしたアイコンのidをcongestion_levelのvalueにする
-  var congestion_level = $(this).attr("id");
-  document.querySelector("#value").value = congestion_level;
-  //クリックしたアイコンのalt属性で混雑具合をtext表示
-  var click =  $(this).attr("alt");
-  $('#selected').text(click);
-});
+  $(".congestion_icons").click(function() {
+    //クリックしたアイコンのみ透明度をなくす
+    $(this).css("filter", "opacity(100%)");
+    $(".congestion_icons").not(this).css("filter", "opacity(20%)");
+    //クリックしたアイコンのidをcongestion_levelのvalueにする
+    var congestion_level = $(this).attr("id");
+    document.querySelector("#value").value = congestion_level;
+    //クリックしたアイコンのalt属性で混雑具合をtext表示
+    var click = $(this).attr("alt");
+    $('#selected').text(click);
+  });
 </script>
