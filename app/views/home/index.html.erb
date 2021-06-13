@@ -26,7 +26,7 @@
   <hr>
   <div class="row">
     <div class="col-md-6 col-sm-12 bgred graph mb-4">
-      <h3>人混み予測</h3>
+      <h4>人混み予測</h4>
       <%= column_chart @graph,
                 id: 'total-attendance-chart',
                 min: 0,
@@ -45,12 +45,12 @@
           <div class='card-body'>
             <% @posts.each do |post| %>
             <li class="list-group-item">
-              <div>名前:<%= post.user.name %></div>
+              <div>ユーザー名:<%= post.user.name %></div>
+              <div><%= l post.date, format: :short %>&ensp;
+                <%= post.time %></div>
               <div><%= post.direction %>方面&ensp;
-                駅名:<%= post.station.station_name %>&ensp;
-                <%= post.time %>時頃</div>
-              <div>混雑度:<%= post.congestion_level %>&ensp;
-                コメント:<%= post.comment %></div>
+                駅名:<%= post.station.station_name %>
+                <div><%= image_tag "#{@icon[post.congestion_level]}", alt:"混雑#{post.congestion_level}", class:"icon-top" %>&ensp;コメント:<%= post.comment %></div>
             </li>
             <% end %>
           </div>

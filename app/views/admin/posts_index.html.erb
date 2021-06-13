@@ -16,7 +16,7 @@
   <ul class="list-unstyled">
     <li>ポストID：<%= post.id%></li>
     <li>投稿者：<%= link_to "#{post.user.name}", show_user_path(post.user)%></li>
-    <li>日付：<%= post.date%><span class="ml-4">曜日：<%= post.day_of_week %></span><span class="ml-4">時刻：<%= post.time %>時</span></li>
+    <li>日付：<%= post.date%><span class="ml-4">曜日：<%= post.day_of_week %></span><span class="ml-4">時刻：<%= post.time %></span></li>
     <li>方面：<%= post.direction%><span class="ml-4">駅：<%= post.station.station_name%></span>
     </li>
     <li>混雑具合：<%= post.congestion_level%></li>
