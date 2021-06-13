@@ -2,6 +2,7 @@ class AdminController < ApplicationController
 
   before_action :except_non_administrator
   before_action :find_user, only: [:show_user, :delete_user]
+  before_action :set_icon, only: [:user_index, :posts_index, :posts_search, :show_user]
 
   def users_index
     @users = User.all.includes(:posts).order(id: 'ASC').page(params[:page]).per(50)
@@ -55,5 +56,9 @@ class AdminController < ApplicationController
 
     def find_user
       @user = User.find_by(id: params[:id])
+    end
+
+    def set_icon
+      @icon = ["混雑1.jpg", "混雑2.jpg", "混雑3.jpg", "混雑4.jpg", "混雑5.jpg"]
     end
 end

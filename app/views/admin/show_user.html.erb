@@ -19,10 +19,10 @@
     <li>日付：<%= post.date%><span class="ml-4">曜日：<%= post.day_of_week %></span><span class="ml-4">時刻：<%= post.time %>時</span></li>
     <li>方面：<%= post.direction%><span class="ml-4">駅：<%= post.station.station_name%></span>
     </li>
-    <li>混雑具合：<%= post.congestion_level%></li>
+    <li>混雑具合：<%= image_tag "#{@icon[post.congestion_level - 1]}", alt:"混雑#{post.congestion_level}", class:"icon-top" %></li>
     <li>コメント：<%= post.comment%></li>
     <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-secondary" %>
   </ul>
   <hr>
   <% end %>
-  <nav aria-label="Page navigation example">
+</main>

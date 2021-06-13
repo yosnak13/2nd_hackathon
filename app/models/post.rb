@@ -23,7 +23,7 @@ class Post < ApplicationRecord
 
   # 検索の際の時間絞り込み
   scope :s_time, ->(start_time) { where("time >= ?", start_time) if start_time.present? }
-  scope :e_time, ->(end_time) { where("time >= ?", end_time) if end_time.present? }
+  scope :e_time, ->(end_time) { where("time <= ?", end_time) if end_time.present? }
 
   # 検索の際の方面と駅の絞り込み
   scope :direction, ->(direction) { where("direction = ?", direction) if direction.present? }
