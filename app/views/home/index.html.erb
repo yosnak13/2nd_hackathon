@@ -50,7 +50,7 @@
                 <%= post.time %></div>
               <div><%= post.direction %>方面&ensp;
                 駅名:<%= post.station.station_name %>
-                <div><%= image_tag "#{@icon[post.congestion_level - 1]}", alt:"混雑#{post.congestion_level}", class:"icon-top" %>&ensp;コメント:<%= post.comment %></div>
+                <div><%= image_tag "#{@icon[post.congestion_level - 1]}", alt:"混雑#{post.congestion_level}", class:"icon-top" %>&ensp;<%= post.comment %></div>
             </li>
             <% end %>
           </div>
