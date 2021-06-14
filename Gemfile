@@ -40,11 +40,12 @@ gem 'dotenv-rails'
 gem 'devise'
 
 gem "chartkick"
+
 gem 'ransack'
 # bootstrapを使用できる
 gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails'
 
+gem 'jquery-rails'
 
 gem 'pry-rails'
 
@@ -53,12 +54,7 @@ gem 'faker'
 
 gem 'kaminari'
 
-
-#日付のバリデーション
-gem 'jc-validates_timeliness'
-
 gem 'nokogiri'
-
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
