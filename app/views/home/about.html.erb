@@ -1,3 +1,4 @@
+<% provide(:title, "トレコミグラフとは") %>
 <div class='container'>
   <h3 class='text-center my-4'>「トレコミグラフ」とは</h3>
 
@@ -20,9 +21,9 @@
       </div>
     </div>
 
-    <div class='col-md-6 text-center'>
+    <div class='col-md-6 text-center mt-4'>
       <small>電車の混み具合を５段階で表示</small>
-      <%= image_tag "/images/graph.png", class: "img-thumbnail"%>
+      <%= image_tag "sample_graph.png", class: "img-thumbnail"%>
     </div>
   </div>
 
@@ -35,28 +36,28 @@
         <div class='card-body'>
 
           <li class="list-group-item">
-            <div>名前: 電車太郎</div>
+            <div>ユーザー名: 電車太郎</div>
+            <div><span>06/12</span>
+              <span>14:00時台</span></div>
             <div><span class="mr-3">西武新宿方面</span><span class="mr-3">
-                上石神井駅</span>
-              <span>8:00時頃</span></div>
-            <div>混雑度: 座席の前で立てる</div>
-            <div>コメント: 週明けとあって、中々混んでる</div>
+                上石神井駅</span></div>
+            <div><%= image_tag "混雑4.jpg", alt:"混雑4", class:"icon-top" %>週明けとあって、中々混んでる</div>
           </li>
           <li class="list-group-item">
-            <div>名前: 鉄道一郎</div>
+            <div>ユーザー名: 鉄道一郎</div>
+            <div><span>06/12</span>
+              <span>8:00時台</span></div>
             <div><span class="mr-3">本川越方面</span><span class="mr-3">
-                高田馬場駅</span>
-              <span>14:00時頃</span></div>
-            <div>混雑度: 着席できる</div>
-            <div>コメント: 意外と座れる。</div>
+                高田馬場駅</span></div>
+            <div><%= image_tag "混雑2.jpg", alt:"混雑2", class:"icon-top" %>意外と座れる。</div>
           </li>
           <li class="list-group-item">
-            <div>西武道雄</div>
+            <div>ユーザー名: 西武道雄</div>
+            <div><span>06/11</span>
+              <span>18:00時台</span></div>
             <div><span class="mr-3">本川越方面</span><span class="mr-3">
-                西武新宿駅
-              </span><span>18:00時頃</span></div>
-            <div>混雑度: 立っているのがやっと</div>
-            <div>コメント: やっぱ、帰宅ラッシュだよねぇ</div>
+                西武新宿駅</span></div>
+            <div><%= image_tag "混雑5.jpg", alt:"混雑5", class:"icon-top" %>やっぱ、帰宅ラッシュだよねぇ</div>
           </li>
 
         </div>
@@ -75,23 +76,23 @@
           </div>
           <p>混み具合は５段階で。時間は1時間ごとに表示されるので、通勤やお出かけの際にチェックすると便利です！</p>
           <div class='row d-flex justify-content-center'>
-              <%= image_tag "混雑1.jpg", alt:"混雑1", class:"icon" %>
-              <%= image_tag "混雑2.jpg", alt:"混雑2", class:"icon" %>
-              <%= image_tag "混雑3.jpg", alt:"混雑3", class:"icon" %>
-              <%= image_tag "混雑4.jpg", alt:"混雑4", class:"icon" %>
-              <%= image_tag "混雑5.jpg", alt:"混雑5", class:"icon" %>
+            <%= image_tag "混雑1.jpg", alt:"混雑1", class:"icon-about" %>
+            <%= image_tag "混雑2.jpg", alt:"混雑2", class:"icon-about" %>
+            <%= image_tag "混雑3.jpg", alt:"混雑3", class:"icon-about" %>
+            <%= image_tag "混雑4.jpg", alt:"混雑4", class:"icon-about" %>
+            <%= image_tag "混雑5.jpg", alt:"混雑5", class:"icon-about" %>
           </div>
           <br>
           <p>ユーザーからの投稿がリアルタイムで反映されていくので、電車の状況が分かります。</p>
 
           <div class="row">
             <% if user_signed_in? %>
-            <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-success mb-2 mx-auto' %>
+            <%= link_to "混雑時間を調べる", root_path, class: 'btn btn-primary mb-2 mx-auto' %>
             <% else %>
-            <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-success mb-2 mx-auto' %>
+            <%= link_to "混雑時間を調べる", new_user_registration_path, class: 'btn btn-primary mb-2 mx-auto' %>
             <% end %>
 
-            <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-success mx-auto mb-2' %>
+            <%= link_to "会員登録する", new_user_registration_path, class: 'btn btn-primary mx-auto mb-2' %>
           </div>
           <p class="small text-danger">*会員登録するとお気に入り駅の登録や、投稿ができます</p>
           <div class="col-1">

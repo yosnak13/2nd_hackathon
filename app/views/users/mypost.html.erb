@@ -1,6 +1,6 @@
-<%= @user %>
-<hr>
 <div class="container">
+  <p><%= @user %>の投稿一覧</p>
+  <hr>
   <ul class="list-group">
     <% @posts.each do |post| %>
     <li class="list-group-item">
@@ -10,7 +10,7 @@
       <div>混雑度:<%= post.congestion_level %></div>
       <div>コメント:<%= post.comment %>
       </div>
-      <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-warning" %>
+      <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-secondary" %>
     </li>
     <% end %>
   </ul>

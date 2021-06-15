@@ -17,11 +17,15 @@
 @import 'bootstrap';
 
 header {
-    background-color: #006400;
-    a {color: #fff;}
+  background-color: #6CC3E2;
+
+  a {
+    color: #fff;
+  }
 }
+
 .traffic {
-font-size: 25px;
+  font-size: 25px;
 }
 
 .navbar-toggler {
@@ -33,10 +37,14 @@ font-size: 25px;
 }
 
 #page-active {
-    background-color: #007F5F;
-    border-color: #007F5F;
+  background-color: #0096C7;
+  border-color: #0096C7;
 }
 
 #page {
-    color: #007F5F;
+  color: #0096C7;
+}
+
+.link {
+  color: #0096C7;
 }

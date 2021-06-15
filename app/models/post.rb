@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   validates :direction, presence: true
   validates :train_type, presence: true
-  validates :date, timeliness: { on_or_before: :now, format: '%Y-%m-%d'}, allow_blank: false
+  validate :date_after_future
   validates :day_of_week, presence: true
   validates :time, presence: true
   validates :congestion_level, presence: true
@@ -23,10 +23,15 @@ class Post < ApplicationRecord
 
   # 検索の際の時間絞り込み
   scope :s_time, ->(start_time) { where("time >= ?", start_time) if start_time.present? }
-  scope :e_time, ->(end_time) { where("time >= ?", end_time) if end_time.present? }
+  scope :e_time, ->(end_time) { where("time <= ?", end_time) if end_time.present? }
 
   # 検索の際の方面と駅の絞り込み
   scope :direction, ->(direction) { where("direction = ?", direction) if direction.present? }
   scope :station, ->(station) { where("station_id = ?", station) if station.present? }
+
+  def date_after_future
+    return if date.blank?
+    errors.add(:date, "は今日以前のものを選択してください") if date > Date.today
+  end
 
 end
