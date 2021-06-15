@@ -16,7 +16,7 @@ class StationsController < ApplicationController
   end
 
   def search
-    @station = Station.find_by(params[:station_id])
+    @station = Station.find_by(id: params[:q][:station_id])
     require 'nokogiri'
     require 'open-uri'
     url = 'https://transit.yahoo.co.jp/traininfo/detail/86/0/'

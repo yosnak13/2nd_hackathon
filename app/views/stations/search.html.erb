@@ -22,8 +22,10 @@
   
   <div class="traffic">
     <u>
-      <%= render 'favorites/favorites' %>
-      西武鉄道の運行状況：<%= @traffic %>
+      <div class ='row'>
+        西武鉄道の運行状況：<%= @traffic %>
+        <span class = 'mx-2'><%= render 'favorites/favorites' %></span>
+      </div>
     </u>
   </div>
   <br>
