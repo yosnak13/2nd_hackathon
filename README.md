@@ -1,7 +1,7 @@
 ## アプリケーション名
 
 **トレコミグラフ**
-由来は「トレイン＋混み（コミュニティ）＋グラフ」です。鉄道の混み具合をグラフで見えるアプリです。投稿とコメントを通して作り上げつアプリなので、「コミ」には「混み」のほか「コミュニティ」の意味も含ませています。
+由来は「トレイン＋混み（コミュニティ）＋グラフ」です。鉄道の混み具合をグラフで見えるアプリです。投稿とコメントを通して作り上げるアプリなので、「コミ」には「混み」のほか「コミュニティ」の意味も含ませています。
 
 ## アプリケーション概要
 
@@ -11,11 +11,20 @@ TOP画面での駅と方面を絞って混雑度を検索<br>
 投稿画面<br>
 ![torekomi4](https://user-images.githubusercontent.com/64535376/121823874-f0d38000-cce2-11eb-869b-9864e07b1555.gif)
 
+## アプリケーション機能
+- サインアップ、ログイン機能
+- ユーザーによる投稿機能：混雑具合を投稿
+- ユーザーによる投稿削除機能：任意の投稿を削除可能
+- 投稿で得たデータを平均化してTOP画面にてグラフ化
+- スクレイピング：運行状況をスクレイピング
+- 非同期通信：TOP画面での検索を非同期通信化して利便性向上
+- 管理者機能：ユーザー管理、投稿管理
+
 ## プロジェクト概要
 
 共同開発を経験してみたい未経験エンジニアが集まってハッカソンを実施。
 4〜6 名で構成された Ruby、PHP、Python のチームがおり、それぞれがアプリ開発してレビューし合う、というプロジェクトです。
-このアプリケーションは Ruby を中心に学習した 5 名の未経験エンジニアによって開発されました。
+このアプリケーションは Ruby を中心に学習した５名の未経験エンジニアによって開発されました。
 
 ## URL
 
@@ -23,8 +32,8 @@ https://torecomigraph.herokuapp.com
 
 ## テスト用アカウント
 
-ID: hackathonruby@gmail.com
-Pass: ruby1111
+ID: hackathonruby@gmail.com<br>
+Password: ruby1111
 
 ## 利用方法
 
@@ -34,6 +43,9 @@ Pass: ruby1111
 
 - 通勤通学時間帯の混雑具合以外に、日中のイベントなどで混雑しているのかを投稿やグラフから確認できるように目指しました。過去にイベントがあった時間帯前後の混雑具合を検索すれば、結果を得られる仕組みです。
 - グラフで混雑具合をわかりやすく表現しました
+- スクレイピングで西武線の運行情報を表示しています
+- UIカラーは西武新宿線を意識して水色にしました
+- 他人が投稿した混雑度をわかりやすくするため、アイコンを使用しました
 
 ## ローカルでの動作方法（Usage）
 
@@ -55,8 +67,8 @@ Docker version 20.10.6
 
 ## 作成者
 
-yosnak13: https://github.com/yosnak13  
-Kazuya-Sakashita: https://github.com/Kazuya-Sakashita  
-hiroshi-00: https://github.com/hiroshi-00  
-moonlight4617: https://github.com/moonlight4617  
-geta-mac: https://github.com/geta-mac
+yosnak13: https://github.com/yosnak13<br>
+Kazuya-Sakashita: https://github.com/Kazuya-Sakashita<br>
+hiroshi-00: https://github.com/hiroshi-00<br>
+moonlight4617: https://github.com/moonlight4617<br>
+geta-mac: https://github.com/geta-mac<br>
