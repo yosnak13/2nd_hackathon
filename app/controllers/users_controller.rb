@@ -10,8 +10,8 @@ class UsersController < ApplicationController
 
   def mypost
     @user = current_user.name
-    @posts = Post.where("user_id = #{current_user.id}" )
-    @favorite_tweets = @user.favorite_tweets
+    # @posts = Post.where("user_id = #{current_user.id}" ).page(params[:page]).per(10)
+    @posts = current_user.posts.page(params[:page]).per(10)
   end
 
   def favorite
