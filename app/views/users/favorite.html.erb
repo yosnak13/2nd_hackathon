@@ -1,4 +1,4 @@
-<div class='container d-flex justify-content-center mt-5'>
+<div class='container d-flex justify-content-center mt-3'>
   <div class='w-75'>
     <h1>お気に入り</h1>
 
@@ -6,23 +6,27 @@
 
     <div class='row'>
       <% @favorites.each do |favorite| %>
-        <div class='col-md-8 my-3'>
-          <h4 class='w-100'>駅名：<%= favorite.station.station_name %></h4>
-          <h6 class='w-100'>駅No：<%= favorite.station.station_number %></h6>
-          <h6 class='w-100'>路線名：<%= favorite.station.line %></h6>
+        <div class='col-md-8 mt-2'>
+          <div class='d-inline-flex'>
+            <div class='container mt-3'>
+              <h4 class='w-100'>駅名：<%= favorite.station.station_name %></h4>
+              <h6 class='w-100'>駅No：<%= favorite.station.station_number %></h6>
+              <h6 class='w-100'>路線名：<%= favorite.station.line %></h6>
+            </div>
+          </div>
         </div>
 
         <div class='col-md-4 my-auto d-flex justify-content-center'>
-          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#favoriteModal'>
+          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModal'>
             削除する
           </button>
         </div>
 
-        <div class='modal fade' id='favoriteModal' tabindex='-1' role='dialog' aria-labelledby='favoriteModalLabel' aria-hidden='true'>
+        <div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
           <div class='modal-dialog' role='document'>
             <div class='modal-content'>
               <div class='modal-header'>
-                <h5 class='modal-title' id='favoriteModalLabel'>お気に入り駅を削除しますか？</h5>
+                <h5 class='modal-title' id='exampleModalLabel'>お気に入り駅を削除しますか？</h5>
                 <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                   <span aria-hidden='true'>&times;</span>
                 </button>
@@ -34,11 +38,14 @@
               </div>
               <div class='modal-footer'>
                 <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                <button type='button' class='btn btn-danger'>削除する</button>
+                <%= link_to station_favorites_path(favorite.station),class: 'btn btn-danger' , method: :delete do %>
+                  削除
+                <% end %>
               </div>
             </div>
           </div>
         </div>
+
 
       <% end %>
     </div>
