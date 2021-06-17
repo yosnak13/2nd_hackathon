@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def mypost
     @user = current_user.name
     @posts = Post.where("user_id = #{current_user.id}").includes(:station).order(date: 'DESC', time: 'DESC').page(params[:page]).per(100)
+    @icon = ["混雑1.jpg", "混雑2.jpg", "混雑3.jpg", "混雑4.jpg", "混雑5.jpg"]
   end
 
   def delete
@@ -22,5 +23,4 @@ class UsersController < ApplicationController
     end
     redirect_back fallback_location: mypost_user_path(current_user.id)
   end
-
 end
