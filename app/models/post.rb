@@ -2,7 +2,6 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :station
 
-  validates :direction, presence: true
   validates :train_type, presence: true
   validate :date_after_future
   validates :day_of_week, presence: true

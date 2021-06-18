@@ -16,7 +16,6 @@ class HomeController < ApplicationController
   end
 
   def search
-    
     require 'nokogiri'
     require 'open-uri'
     url = 'https://transit.yahoo.co.jp/traininfo/detail/86/0/'
