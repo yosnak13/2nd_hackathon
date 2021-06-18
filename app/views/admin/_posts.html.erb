@@ -1,0 +1,50 @@
+<main class="container">
+  <h3 class="text-center">投稿一覧</h3>
+  <h5>投稿検索</h5>
+  <%= form_with model: @post, method: :get,url: posts_search_path, local: true do |f| %>
+  <div class="row">
+    <div class="col-lg-4 col-sm-10 my-1">
+      開始日：<%= f.date_field :start_date %>
+    </div>
+    <div class="col-lg-3 col-sm-10 my-1">
+      開始時刻：<%= f.select :start_time, [['0時', 0], ['1時', 1], ['2時', 2], ['3時', 3], ['4時', 4], ['5時', 5], ['6時', 6], ['7時', 7], ['8時', 8], ['9時', 9], ['10時', 10], ['11時', 11], ['12時', 12], ['13時', 13], ['14時', 14], ['15時', 15], ['16時', 16], ['17時', 17], ['18時', 18], ['19時', 19], ['20時', 20], ['21時', 21], ['22時', 22], ['23時', 23]], {prompt: "全選択"} %>
+    </div>
+    <div class="col-lg-3 col-sm-10 my-1">
+      方面：<%= f.select :direction, [['西武新宿方面', 0], ['本川越方面', 1]], {prompt: "全選択"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-sm-10 my-1">
+      終了日：<%= f.date_field :end_date %>
+    </div>
+    <div class="col-lg-3 col-sm-10 my-1">
+      終了時刻：<%= f.select :end_time, [['0時', 0], ['1時', 1], ['2時', 2], ['3時', 3], ['4時', 4], ['5時', 5], ['6時', 6], ['7時', 7], ['8時', 8], ['9時', 9], ['10時', 10], ['11時', 11], ['12時', 12], ['13時', 13], ['14時', 14], ['15時', 15], ['16時', 16], ['17時', 17], ['18時', 18], ['19時', 19], ['20時', 20], ['21時', 21], ['22時', 22], ['23時', 23]], {prompt: "全選択"} %>
+    </div>
+    <div class="col-lg-3 col-sm-10 my-1">
+      駅：<%= f.collection_select :station, Station.all, :id, :station_name, {prompt: "全選択"} %>
+    </div>
+    <div class="col-lg-2 col-sm-10 my-1">
+      <%= f.submit "検索" %>
+    </div>
+  </div>
+  <% end %>
+  <hr>
+  <% @posts.each do |post| %>
+  <ul class="list-unstyled">
+    <li>ポストID：<%= post.id%></li>
+    <li>投稿者：<%= link_to "#{post.user.name}", show_user_path(post.user)%></li>
+    <li>日付：<%= post.date%><span class="ml-4">曜日：<%= post.day_of_week %></span><span class="ml-4">時刻：<%= post.time %></span></li>
+    <li>方面：<%= post.direction%><span class="ml-4">駅：<%= post.station.station_name%></span>
+    </li>
+    <li>混雑具合：<%= image_tag "#{@icon[post.congestion_level - 1]}", alt:"混雑#{post.congestion_level}", class:"icon-top" %></li>
+    <li>コメント：<%= post.comment%></li>
+    <%= button_to '投稿削除', delete_post_path(post.id), data: {confirm: '本当に投稿を削除しますか？'}, method: :delete, class: "btn btn-secondary" %>
+  </ul>
+  <hr>
+  <% end %>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <%= paginate @posts %>
+    </ul>
+  </nav>
+</main>

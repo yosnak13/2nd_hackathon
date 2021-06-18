@@ -21,11 +21,12 @@ class AdminController < ApplicationController
     e_date = params[:post][:end_date]
     direction = params[:post][:direction]
     station = params[:post][:station]
-    @posts = Post.s_duration(s_date).e_duration(e_date).s_time(s_time).e_time(e_time).direction(direction).station(station).includes(:user, :station)
+    @posts = Post.s_duration(s_date).e_duration(e_date).s_time(s_time).e_time(e_time).direction(direction).station(station).includes(:user, :station).page(params[:page]).per(100)
   end
 
   def show_user
-    @posts = @user.posts.includes(:user, :station)
+    @post = Post.new
+    @posts = @user.posts.includes(:user, :station).order(date: 'DESC', time: 'DESC').page(params[:page]).per(100)
   end
 
   def delete_user
