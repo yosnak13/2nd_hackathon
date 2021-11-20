@@ -56,6 +56,7 @@ docker を使用しているため、docker をインストールしてくださ
 $ git clone https://github.com/yosnak13/hackathon_ruby_team
 $ docker-compose build
 $ docker-compose exec web rails db:create
+$ docker-compose exec web rails db:seed
 $ docker-compose up
 ```
 
